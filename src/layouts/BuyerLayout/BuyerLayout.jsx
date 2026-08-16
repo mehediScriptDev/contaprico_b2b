@@ -3,7 +3,6 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { FiMenu, FiX } from 'react-icons/fi'
 import Header from '../shared/Header'
-import CategoryBar from '../shared/CategoryBar'
 import Footer from '../shared/Footer'
 import Seo from '../../components/common/Seo/Seo'
 import BuyerSidebar from './BuyerSidebar'
@@ -126,10 +125,9 @@ export default function BuyerLayout({
   }, [menuOpen])
 
   return (
-    <div className="flex min-h-screen w-full flex-col overflow-x-hidden bg-white">
+    <div className="flex min-h-screen w-full flex-col bg-white">
       <Seo />
       <Header />
-      <CategoryBar />
 
       <div className="w-full bg-[#EFF0F1] py-6 sm:py-10">
         <h1 className="text-center text-2xl font-bold text-[var(--primary-text)] sm:text-3xl md:text-4xl">
@@ -198,7 +196,7 @@ export default function BuyerLayout({
 
         <div className="flex w-full flex-col gap-6 lg:flex-row lg:gap-[5%]">
           {/* Desktop sidebar — % of row */}
-          <div className="hidden w-full shrink-0 lg:block lg:w-[22%]">
+          <div className="hidden w-full shrink-0 lg:block lg:w-[22%] lg:sticky lg:top-38 lg:self-start">
             <BuyerSidebar items={roleConfig.nav} onLogout={onLogout} />
           </div>
 

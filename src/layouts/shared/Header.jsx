@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import Logo from '../../components/common/Logo/Logo'
 import LanguageSwitcher from '../../components/common/LanguageSwitcher/LanguageSwitcher'
+import CategoryBar from './CategoryBar'
 import { getHomePathForRole } from '../../features/auth/demoUsers'
 import { logout } from '../../features/auth/authSlice'
 import {
@@ -36,8 +37,9 @@ const socialLinks = [
 
 /**
  * Public site header.
- * Guest (logged out): matches marketing header — search + SIGN UP / LOG IN.
- * Authenticated: top bar + account icon.
+ * Top promo bar is always visible.
+ * Guest: search + SIGN UP / LOG IN.
+ * Authenticated: account icon.
  */
 export default function Header() {
   const { t } = useTranslation()
@@ -112,34 +114,34 @@ export default function Header() {
   }
 
   return (
-    <header ref={headerRef} className="relative sticky top-0 z-50 w-full">
-      {/* Top promo bar — authenticated only */}
-      {isAuthenticated ? (
-        <div className="hidden w-full bg-zinc-950 shadow-[inset_0px_-1px_0px_0px_rgba(255,255,255,0.16)] md:block">
-          <div className="container mx-auto flex w-full items-center justify-between gap-4 px-6 py-3">
-            <p className="truncate text-sm leading-5 font-normal text-white">
-              {t('header.welcome')}
-            </p>
-            <div className="flex shrink-0 items-center justify-center gap-3">
-              <span className="text-sm leading-5 font-normal text-white">
-                {t('header.followUs')}
-              </span>
-              <div className="flex items-start gap-3">
-                {socialLinks.map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    href="#"
-                    aria-label={label}
-                    className="text-white transition-colors hover:text-[var(--active)]"
-                  >
-                    <Icon className="size-3.5" />
-                  </a>
-                ))}
-              </div>
+    <>
+      {/* Top promo bar — NOT sticky, scrolls away */}
+      <div className="hidden w-full bg-zinc-950 shadow-[inset_0px_-1px_0px_0px_rgba(255,255,255,0.16)] md:block">
+        <div className="container mx-auto flex w-full items-center justify-between gap-4 px-6 py-3">
+          <p className="truncate text-sm leading-5 font-normal text-white">
+            {t('header.welcome')}
+          </p>
+          <div className="flex shrink-0 items-center justify-center gap-3">
+            <span className="text-sm leading-5 font-normal text-white">
+              {t('header.followUs')}
+            </span>
+            <div className="flex items-start gap-3">
+              {socialLinks.map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="text-white transition-colors hover:text-[var(--active)]"
+                >
+                  <Icon className="size-3.5" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
-      ) : null}
+      </div>
+
+      <header ref={headerRef} className="sticky top-0 z-50 w-full shrink-0">
 
       {/* Mobile header */}
       <div className="relative z-50 w-full overflow-visible border-b border-gray-100 bg-white md:hidden">
@@ -349,6 +351,8 @@ export default function Header() {
         </div>
       </div>
 
+      <CategoryBar />
+
       {/* Mobile overlay + menu */}
       <div
         className={`fixed inset-x-0 bottom-0 z-40 bg-black/30 transition-opacity duration-300 ease-out md:hidden ${
@@ -441,5 +445,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 }

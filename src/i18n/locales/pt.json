@@ -197,19 +197,28 @@
       "slides": {
         "hero-1": {
           "badge": "Entrega rápida",
-          "titleLines": ["Poupe mais em", "encomendas em volume"],
+          "titleLines": [
+            "Poupe mais em",
+            "encomendas em volume"
+          ],
           "description": "Preços especiais para grandes quantidades. Ideal para empreiteiros e construtores.",
           "ctaLabel": "Pedir orçamento em volume"
         },
         "hero-2": {
           "badge": "Entrega rápida",
-          "titleLines": ["Materiais de qualidade para", "cada projeto"],
+          "titleLines": [
+            "Materiais de qualidade para",
+            "cada projeto"
+          ],
           "description": "Cimento, aço e ferramentas de fornecedores verificados em toda a região.",
           "ctaLabel": "Comprar agora"
         },
         "hero-3": {
           "badge": "Entrega rápida",
-          "titleLines": ["Feito para empreiteiros", "e construtores"],
+          "titleLines": [
+            "Feito para empreiteiros",
+            "e construtores"
+          ],
           "description": "Encomendas simplificadas, preços em volume e entrega fiável na obra.",
           "ctaLabel": "Pedir orçamento em volume"
         }
@@ -238,6 +247,787 @@
       "products": "Produtos disponíveis",
       "carriers": "Transportadores ativos",
       "delivery": "Tempo médio de entrega"
+    }
+  },
+  "adminDashboard": {
+    "title": "Visão geral do painel",
+    "subtitle": "Resumo executivo e indicadores-chave de desempenho.",
+    "quickActionSectionTitle": "Ação rápida",
+    "takeAction": "Tomar ação →",
+    "channels": {
+      "label": "Canal de vendas",
+      "all": "Todos os canais",
+      "b2b": "Apenas B2B",
+      "b2c": "Apenas B2C"
+    },
+    "metrics": {
+      "totalGmv": "GMV total",
+      "b2bGmv": "GMV B2B",
+      "b2cGmv": "GMV B2C",
+      "totalRevenue": "Receita total",
+      "commission": "Comissão",
+      "avgOrderValue": "Valor médio do pedido",
+      "activeUsers": "Utilizadores ativos",
+      "newRegistrations": "Novos registos",
+      "activeSuppliers": "Fornecedores ativos",
+      "activeFactories": "Fábricas ativas",
+      "activeTransporters": "Transportadores ativos",
+      "openDisputes": "Disputas abertas"
+    },
+    "quickActions": {
+      "transporterPayments": {
+        "title": "Aprovar pagamentos a transportadores",
+        "subtitleLine": "4 pedidos aguardam revisão"
+      },
+      "affiliatePayouts": {
+        "title": "Processar pagamentos a afiliados",
+        "subtitleLine": "2 pendentes — 2 prontos para marcar como pagos"
+      },
+      "affiliateAnalytics": {
+        "title": "Ver analítica de afiliados",
+        "subtitleLine": "Acompanhar melhores desempenhos e conversão"
+      }
+    },
+    "charts": {
+      "revenueTrend": "Tendência de receita",
+      "orderVolume": "Volume de pedidos",
+      "thisYear": "Este ano",
+      "b2bRevenue": "Receita B2B",
+      "b2cRevenue": "Receita B2C",
+      "b2bOrders": "Pedidos B2B",
+      "b2cOrders": "Pedidos B2C"
+    },
+    "performance": {
+      "retentionTitle": "Taxa de retenção",
+      "b2bRetention": "Retenção B2B",
+      "b2cRetention": "Retenção B2C",
+      "ltvTitle": "LTV do cliente",
+      "b2bLtv": "LTV médio B2B",
+      "b2cLtv": "LTV médio B2C",
+      "repurchaseTitle": "Taxa de recompra",
+      "b2bRepurchase": "Recompra B2B",
+      "b2cRepurchase": "Recompra B2C"
+    }
+  },
+  "adminUserManagement": {
+    "title": "Gestão de utilizadores",
+    "subtitle": "Gerir clientes, empresas e todas as contas de utilizador",
+    "tabs": {
+      "customer": "Cliente",
+      "company": "Empresa"
+    },
+    "stats": {
+      "totalUsers": "Total de utilizadores",
+      "b2cCustomers": "Clientes B2C",
+      "b2bCompanies": "Empresas B2B",
+      "pendingVerification": "Verificação pendente"
+    },
+    "filters": {
+      "allStatus": "Todos os estados",
+      "active": "Ativo",
+      "suspended": "Suspenso"
+    },
+    "searchPlaceholder": "Pesquisar nome, e-mail, telefone...",
+    "columns": {
+      "name": "NOME",
+      "phone": "TELEFONE",
+      "email": "E-MAIL",
+      "type": "TIPO",
+      "status": "ESTADO",
+      "vatRate": "Taxa de IVA",
+      "registered": "REGISTO"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "suspend": "Suspender",
+      "delete": "Eliminar",
+      "message": "Mensagem"
+    },
+    "modal": {
+      "title": "Detalhes do utilizador",
+      "close": "Fechar",
+      "registeredOn": "Registado em {{date}}",
+      "address": "Morada"
+    }
+  },
+  "adminSupplierManagement": {
+    "title": "Gestão de fornecedores",
+    "subtitle": "Monitorizar e gerir fornecedores.",
+    "tabs": {
+      "all": "Todos os fornecedores",
+      "pending": "Fornecedores pendentes",
+      "suspended": "Fornecedores suspensos"
+    },
+    "stats": {
+      "totalSuppliers": "Total de fornecedores",
+      "active": "Ativos",
+      "underReview": "Em revisão",
+      "suspended": "Suspensos"
+    },
+    "searchPlaceholder": "Pesquisar nome, e-mail, telefone...",
+    "empty": "Nenhum fornecedor encontrado",
+    "columns": {
+      "name": "Nome",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "registered": "Data de registo",
+      "commission": "Comissão",
+      "status": "Estado",
+      "action": "Ação"
+    },
+    "commission": {
+      "title": "Adicionar comissão",
+      "custom": "Personalizado",
+      "placeholder": "Percentagem %",
+      "set": "Definir"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "suspend": "Suspender",
+      "approved": "Aprovar",
+      "reject": "Rejeitar",
+      "renew": "Renovar",
+      "delete": "Eliminar",
+      "message": "Mensagem"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    },
+    "modal": {
+      "title": "Detalhes do fornecedor",
+      "close": "Fechar",
+      "registeredOn": "Registado em {{date}}",
+      "documentsTitle": "Certificado e comprovativo de ID"
+    }
+  },
+  "adminFactoryManagement": {
+    "title": "Gestão de fábricas",
+    "subtitle": "Monitorizar e gerir fábricas.",
+    "tabs": {
+      "all": "Todas as fábricas",
+      "pending": "Fábricas pendentes",
+      "suspended": "Fábricas suspensas"
+    },
+    "stats": {
+      "totalFactories": "Total de fábricas",
+      "active": "Ativas",
+      "underReview": "Em revisão",
+      "suspended": "Suspensas"
+    },
+    "searchPlaceholder": "Pesquisar nome, e-mail, telefone...",
+    "empty": "Nenhuma fábrica encontrada",
+    "columns": {
+      "name": "Nome",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "registered": "Data de registo",
+      "commission": "Comissão",
+      "status": "Estado",
+      "action": "Ação"
+    },
+    "commission": {
+      "title": "Adicionar comissão",
+      "custom": "Personalizado",
+      "placeholder": "Percentagem %",
+      "set": "Definir"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "suspend": "Suspender",
+      "approved": "Aprovar",
+      "reject": "Rejeitar",
+      "renew": "Renovar",
+      "delete": "Eliminar",
+      "message": "Mensagem"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    },
+    "modal": {
+      "title": "Detalhes da fábrica",
+      "close": "Fechar",
+      "registeredOn": "Registado em {{date}}",
+      "documentsTitle": "Certificado e comprovativo de ID"
+    }
+  },
+  "adminTransporterManagement": {
+    "title": "Gestão de transportadores",
+    "subtitle": "Monitorizar e gerir transportadores.",
+    "tabs": {
+      "all": "Todos os transportadores",
+      "pending": "Transportadores pendentes",
+      "suspended": "Transportadores suspensos"
+    },
+    "stats": {
+      "totalTransporters": "Total de transportadores",
+      "active": "Ativos",
+      "underReview": "Em revisão",
+      "suspended": "Suspensos"
+    },
+    "searchPlaceholder": "Pesquisar nome, e-mail, telefone...",
+    "empty": "Nenhum transportador encontrado",
+    "columns": {
+      "name": "Nome",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "registered": "Data de registo",
+      "status": "Estado",
+      "action": "Ação"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "suspend": "Suspender",
+      "approved": "Aprovar",
+      "reject": "Rejeitar",
+      "renew": "Renovar",
+      "delete": "Eliminar",
+      "message": "Mensagem"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    },
+    "modal": {
+      "title": "Detalhes do transportador",
+      "close": "Fechar",
+      "registeredOn": "Registado em {{date}}",
+      "documentsTitle": "Certificado e comprovativo de ID"
+    }
+  },
+  "adminProductModeration": {
+    "title": "Moderação de produtos",
+    "subtitle": "Rever e moderar produtos carregados pelos utilizadores",
+    "tabs": {
+      "all": "Todos {{count}}",
+      "pending": "Pendentes ({{count}})",
+      "accepted": "Aceites ({{count}})",
+      "rejected": "Rejeitados ({{count}})"
+    },
+    "filters": {
+      "label": "Filtros:",
+      "allCategories": "Todas as categorias",
+      "buildingMaterials": "Materiais de construção",
+      "structuralSteel": "Aço estrutural",
+      "masonry": "Alvenaria",
+      "electrical": "Equipamentos elétricos"
+    },
+    "empty": "Nenhum produto corresponde aos filtros.",
+    "detail": {
+      "back": "Voltar à moderação de produtos",
+      "title": "{{name}} · Moderação",
+      "notFound": "Produto não encontrado."
+    }
+  },
+  "adminChat": {
+    "subtitle": "Mensagens com fornecedores, compradores e parceiros num único inbox."
+  },
+  "adminMarketingManagement": {
+    "title": "Gestão de marketing",
+    "subtitle": "Gerir pacotes de visibilidade e pedidos de publicidade de fornecedores.",
+    "stats": {
+      "totalRevenue": "Receita total",
+      "pendingRequests": "Pedidos pendentes",
+      "activeBoosts": "Boosts ativos",
+      "totalFeatured": "Total de produtos em destaque"
+    },
+    "tabs": {
+      "all": "Todos os pedidos",
+      "pending": "Pendentes ({{count}})",
+      "active": "Ativos ({{count}})",
+      "completed": "Concluídos"
+    },
+    "pendingBoostTitle": "Pedidos de boost pendentes",
+    "actionRequired": "Ação necessária",
+    "featuredTitle": "Produtos atualmente em destaque",
+    "boostTier": "Nível de boost",
+    "duration": "Duração",
+    "emptyRequests": "Nenhum pedido de boost corresponde a este filtro.",
+    "actions": {
+      "accept": "Aceitar",
+      "reject": "Rejeitar"
+    }
+  },
+  "adminFinancePayments": {
+    "title": "Finanças e pagamentos",
+    "subtitle": "Receita do marketplace, pagamentos a vendedores e saúde financeira.",
+    "stats": {
+      "totalRevenue": "Receita total",
+      "commissionRevenue": "Receita de comissões",
+      "pendingPayouts": "Pagamentos pendentes",
+      "marketingRevenue": "Receita de marketing"
+    },
+    "charts": {
+      "revenueTrend": "Tendência de receita",
+      "commission": "Comissão",
+      "marketing": "Marketing",
+      "thisYear": "Este ano",
+      "lastYear": "Ano anterior"
+    },
+    "payoutSection": {
+      "title": "Pedidos de pagamento",
+      "subtitle": "Reveja pedidos de pagamento de transportadores e respetivo estado."
+    },
+    "payoutSearchPlaceholder": "Pesquisar nome ou e-mail do transportador...",
+    "payoutEmpty": "Nenhum pedido corresponde aos filtros.",
+    "payoutFilters": {
+      "allRequests": "Todos os pedidos"
+    },
+    "payoutColumns": {
+      "transporter": "Transportador",
+      "totalEarnings": "Ganhos totais",
+      "requested": "Solicitado",
+      "pending": "Pendente",
+      "requestDate": "Data do pedido",
+      "status": "Estado",
+      "action": "Ação"
+    },
+    "payoutStatus": {
+      "paid": "Pago",
+      "approved": "Aprovado",
+      "rejected": "Rejeitado",
+      "pending": "Pendente"
+    },
+    "payoutActions": {
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "markPaid": "Marcar como pago",
+      "viewDetails": "Ver detalhes"
+    },
+    "invoiceSection": {
+      "title": "Faturas de comissão",
+      "subtitle": "Gerir e acompanhar todas as faturas de comissão de vendedores geradas por encomendas concluídas."
+    },
+    "invoiceSearchPlaceholder": "Pesquisar ID de fatura, encomenda ou participante...",
+    "invoiceEmpty": "Nenhuma fatura corresponde aos filtros.",
+    "invoiceFilters": {
+      "sortLabel": "Ordenar por:",
+      "allTypes": "Tipo de utilizador"
+    },
+    "invoiceColumns": {
+      "invoiceId": "ID da fatura",
+      "userType": "Tipo de utilizador",
+      "orderId": "ID da encomenda",
+      "participant": "Participante",
+      "amount": "Montante",
+      "date": "Data",
+      "actions": "Ações"
+    },
+    "userTypes": {
+      "supplier": "Fornecedor",
+      "factory": "Fábrica",
+      "transporter": "Transportador"
+    },
+    "invoiceActions": {
+      "view": "Ver fatura",
+      "download": "Transferir fatura"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    }
+  },
+  "adminDisputesResolution": {
+    "title": "Resolução de disputas",
+    "subtitle": "Gerir disputas de clientes, devoluções e casos de resolução",
+    "searchPlaceholder": "Pesquisar ID de disputa, encomenda, cliente, fornecedor...",
+    "empty": "Nenhuma disputa corresponde aos filtros.",
+    "filters": {
+      "allStatus": "Todos os estados"
+    },
+    "columns": {
+      "disputeId": "ID da disputa",
+      "orderId": "ID da encomenda",
+      "customer": "Cliente",
+      "supplier": "Fornecedor",
+      "issue": "Problema",
+      "status": "Estado",
+      "registered": "Registado",
+      "action": "Ação"
+    },
+    "status": {
+      "pending": "Pendente",
+      "under_review": "Em revisão",
+      "resolved": "Resolvido"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "status": "Estado"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    },
+    "detail": {
+      "back": "Voltar à resolução de disputas",
+      "title": "{{id}} · Disputa",
+      "notFound": "Disputa não encontrada."
+    }
+  },
+  "adminAuction": {
+    "title": "Painel de leilões",
+    "subtitle": "{{count}} leilões ativos na sua área de serviço",
+    "filterLabel": "Filtro:",
+    "dateLabel": "Data do painel",
+    "empty": "Nenhum leilão corresponde a este filtro.",
+    "filters": {
+      "all": "Todos",
+      "endingSoon": "A terminar em breve",
+      "nearestFirst": "Mais próximos",
+      "ended": "Terminados"
+    }
+  },
+  "adminOrders": {
+    "title": "Encomendas",
+    "subtitle": "Todas as encomendas",
+    "filterLabel": "Filtro:",
+    "searchPlaceholder": "Pesquisar ID da encomenda, cliente, estado...",
+    "empty": "Nenhuma encomenda corresponde aos filtros.",
+    "tabs": {
+      "supplier": "Encomenda de fornecedor",
+      "factory": "Encomenda de fábrica"
+    },
+    "filters": {
+      "allCustomerType": "Todos os tipos de cliente",
+      "allStatus": "Todos os estados"
+    },
+    "columns": {
+      "orderId": "ID da encomenda",
+      "customerName": "Nome do cliente",
+      "customerType": "Tipo de cliente",
+      "items": "Itens",
+      "total": "Total",
+      "commission": "Comissão",
+      "status": "Estado",
+      "date": "Data",
+      "action": "Ação"
+    },
+    "customerTypes": {
+      "company": "Empresa",
+      "customer": "Cliente"
+    },
+    "status": {
+      "new": "Nova",
+      "pending": "Pendente",
+      "processing": "Em processamento",
+      "assigned": "Atribuída",
+      "completed": "Concluída",
+      "cancel": "Cancelada"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "delete": "Eliminar"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    },
+    "detail": {
+      "back": "Voltar às encomendas",
+      "title": "{{id}} · Encomenda",
+      "notFound": "Encomenda não encontrada.",
+      "supplierSection": "Informações do fornecedor",
+      "factorySection": "Informações da fábrica",
+      "produced": "Produzido",
+      "assigned": "Atribuído"
+    }
+  },
+  "adminDeliveryLogistics": {
+    "title": "Entrega e logística",
+    "subtitle": "Monitorize entregas ativas e detalhes de envio.",
+    "status": {
+      "assigned": "Atribuído",
+      "pickedUp": "Recolhido",
+      "inTransit": "Em trânsito",
+      "delivered": "Entregue"
+    },
+    "detail": {
+      "back": "Voltar a entrega e logística",
+      "title": "{{id}} · Entrega",
+      "notFound": "Entrega não encontrada."
+    }
+  },
+  "adminAffiliateDirectory": {
+    "title": "Diretório de afiliados",
+    "subtitle": "Explore, gira e ligue-se à sua rede de afiliados num só lugar.",
+    "sortLabel": "ORDENAR:",
+    "searchPlaceholder": "Pesquisar afiliados…",
+    "empty": "Nenhum registo corresponde aos filtros.",
+    "tabs": {
+      "members": "Membro afiliado",
+      "payoutControl": "Controlo de pagamentos",
+      "levelControl": "Controlo de níveis"
+    },
+    "stats": {
+      "totalAffiliates": "Total de afiliados",
+      "totalAffiliatesHint": "Parceiros registados",
+      "activeAffiliates": "Afiliados ativos",
+      "activeAffiliatesHint": "A gerar tráfego",
+      "referredClients": "Clientes referidos",
+      "referredClientsHint": "Subscrições ativas",
+      "marketplaceRevenue": "Receita do marketplace",
+      "marketplaceRevenueHint": "Gerada por afiliados",
+      "totalCommissionPaid": "Comissão total paga",
+      "totalCommissionPaidHint": "Processada com sucesso",
+      "pendingCommission": "Comissão pendente",
+      "pendingCommissionHint": "Aguarda aprovação de pagamento"
+    },
+    "columns": {
+      "affiliateName": "Nome do afiliado",
+      "affiliateId": "ID do afiliado",
+      "code": "Código",
+      "level": "Nível",
+      "tierRate": "Taxa de nível",
+      "totalClients": "Total de clientes",
+      "activeClients": "Clientes ativos",
+      "revenueGenerated": "Receita gerada",
+      "commissionEarned": "Comissão ganha",
+      "pending": "Pendente",
+      "status": "ESTADO",
+      "action": "AÇÃO"
+    },
+    "filters": {
+      "allStatus": "Todos os estados",
+      "allPlans": "Todos",
+      "customer": "Cliente",
+      "company": "Empresa"
+    },
+    "status": {
+      "active": "Ativo",
+      "suspended": "Suspenso"
+    },
+    "clientStatus": {
+      "active": "Ativo",
+      "suspended": "Suspenso"
+    },
+    "commissionStatus": {
+      "approved": "Aprovado"
+    },
+    "payoutStatus": {
+      "pending": "Pendente",
+      "paid": "Pago",
+      "approved": "Aprovado",
+      "rejected": "Rejeitado"
+    },
+    "levelStatus": {
+      "active": "Ativo",
+      "inactive": "Inativo"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "suspend": "Suspender",
+      "delete": "Eliminar"
+    },
+    "pagination": {
+      "summary": "A mostrar {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Seguinte"
+    },
+    "payoutControl": {
+      "pageTitle": "Centro de controlo de pagamentos",
+      "pageSubtitle": "Audite saldos pendentes, autorize transferências e reveja históricos de conformidade.",
+      "requestsTitle": "Pedidos de pagamento",
+      "searchPlaceholder": "Pesquisar afiliado, conta, estado...",
+      "filters": { "allRequests": "Todos os pedidos" },
+      "actions": {
+        "paid": "Pago",
+        "rejected": "Rejeitado",
+        "approved": "Aprovado"
+      },
+      "columns": {
+        "affiliate": "Afiliado",
+        "totalEarnings": "GANHOS TOTAIS",
+        "requested": "Pedido",
+        "pending": "PENDENTE",
+        "accountNumber": "Número de conta",
+        "requestDate": "Data do pedido",
+        "status": "ESTADO"
+      }
+    },
+    "levelControl": {
+      "pageTitle": "Sistema de marcos de níveis de comissão",
+      "pageSubtitle": "Defina níveis, metas de referência e taxas de comissão correspondentes.",
+      "activeBadge": "Ativo",
+      "commissionSplit": "Divisão de comissão",
+      "payoutNote": "Divisão vitalícia recorrente",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "createTitle": "Criar novo nível de comissão",
+      "tierSubtitles": {
+        "entryLevel": "Nível inicial",
+        "bronzeTier": "Nível bronze",
+        "silverTier": "Nível prata",
+        "goldTier": "Nível ouro",
+        "premiumTier": "Nível premium",
+        "customTier": "Nível personalizado"
+      },
+      "form": {
+        "levelName": "Nome do nível",
+        "levelNamePlaceholder": "ex. Diamond",
+        "commission": "Comissão %",
+        "membersRequired": "Membros necessários",
+        "description": "Descrição",
+        "cancel": "Cancelar",
+        "save": "Guardar nível"
+      }
+    },
+    "detail": {
+      "back": "Voltar",
+      "title": "{{name}} · Afiliado",
+      "notFound": "Afiliado não encontrado.",
+      "joined": "Adesão",
+      "code": "Código",
+      "tier": "Nível",
+      "stats": {
+        "revenue": "Receita",
+        "earned": "Ganho",
+        "clients": "Clientes"
+      },
+      "tabs": {
+        "clients": "Clientes referidos",
+        "analytics": "Análise de receita",
+        "commissions": "Histórico de comissões",
+        "payouts": "Histórico de pagamentos"
+      },
+      "clients": {
+        "sectionTitle": "Clientes referidos",
+        "columns": {
+          "clientInfo": "Info do cliente",
+          "phone": "Telefone",
+          "joinDate": "Data de adesão",
+          "plan": "Plano de subscrição",
+          "generatedRevenue": "Receita gerada",
+          "affiliateCommission": "Comissão do afiliado",
+          "expiryDate": "Data de expiração",
+          "status": "ESTADO",
+          "action": "AÇÃO"
+        }
+      },
+      "commissions": {
+        "sectionTitle": "Registo de comissões",
+        "columns": {
+          "transactionId": "ID da transação",
+          "date": "Data",
+          "sourceClient": "Cliente de origem",
+          "purchaseSize": "Valor da compra",
+          "rate": "Taxa percentual",
+          "earned": "Comissão ganha",
+          "status": "Estado"
+        }
+      },
+      "payouts": {
+        "sectionTitle": "Registo de comissões",
+        "columns": {
+          "referenceId": "ID de referência",
+          "requestedDate": "Data pedida",
+          "method": "Método",
+          "accountNumber": "Número de conta",
+          "amount": "Valor do pagamento",
+          "status": "Estado do processamento"
+        }
+      },
+      "chart": {
+        "eyebrow": "Ganhos históricos",
+        "title": "Ganhos históricos e receita gerada",
+        "subtitle": "Receita do marketplace e comissão mês a mês.",
+        "timeframe": "Intervalo",
+        "thisYear": "Este ano",
+        "marketplaceRev": "Receita marketplace",
+        "affiliateCommission": "Comissão do afiliado"
+      }
+    }
+  },
+  "adminRolesPermissions": {
+    "title": "Estratégia de funções e permissões",
+    "subtitle": "Documentação das camadas de controlo de acesso implementadas na Construpreco. Garante a segurança dos dados e uma experiência focada para cada função da equipa.",
+    "roles": {
+      "moderator": "Moderador",
+      "admin": "Administrador",
+      "viewer": "Visualizador"
+    },
+    "invite": {
+      "title": "Convide a sua equipa",
+      "description": "Adicione facilmente novos membros a uma função introduzindo os respetivos endereços de e-mail abaixo. Após o convite, receberão um e-mail com um link para aderir.",
+      "emailLabel": "Endereço de e-mail",
+      "emailPlaceholder": "nome@empresa.com",
+      "roleLabel": "Função",
+      "send": "Enviar convite"
+    },
+    "editMatrix": {
+      "title": "Matriz de edição",
+      "empty": "Nenhum módulo nesta matriz.",
+      "toggleAria": "Alternar acesso de edição para {{module}}",
+      "deleteAria": "Remover {{module}} da matriz de edição"
+    },
+    "visibilityMatrix": {
+      "title": "Matriz de visibilidade",
+      "download": "Transferir",
+      "visible": "Visível",
+      "hidden": "Oculto"
+    },
+    "columns": {
+      "modulePage": "Módulo / Página",
+      "moderator": "Moderador",
+      "action": "Ação"
+    },
+    "modules": {
+      "dashboardOverview": "Painel / Visão geral",
+      "productManagement": "Gestão de produtos",
+      "supplierManagement": "Gestão de fornecedores",
+      "factoryManagement": "Gestão de fábricas",
+      "transporterManagement": "Gestão de transportadores",
+      "productModeration": "Moderação de produtos"
+    },
+    "visibilityModules": {
+      "overviewAnalytics": "Visão geral / Analítica",
+      "classesCourses": "Turmas e cursos",
+      "memberDatabase": "Base de membros",
+      "instructorDirectory": "Diretório de instrutores"
+    }
+  },
+  "adminSettings": {
+    "title": "Definições",
+    "subtitle": "Configure envio, impostos e leilões da plataforma.",
+    "unsaved": "Por guardar",
+    "saveChange": "Guardar alteração",
+    "reset": "Repor",
+    "calculate": "Calcular",
+    "shipping": {
+      "title": "Gestão de taxas de envio",
+      "description": "Defina taxas por quilómetro e pré-visualize custos.",
+      "baseRateTitle": "Taxa base de envio",
+      "perKmLabel": "Taxa por quilómetro",
+      "calculatorTitle": "Calculadora de envio",
+      "distanceLabel": "Distância",
+      "currentRateLabel": "Taxa atual",
+      "resultTitle": "Custo de envio",
+      "resultFormula": "{{distance}} KM × {{rate}} = {{total}}"
+    },
+    "vat": {
+      "title": "IVA e impostos",
+      "description": "Gerir IVA predefinido e pré-visualizar impostos.",
+      "configTitle": "Configuração de IVA atual",
+      "defaultRateLabel": "Taxa de IVA predefinida",
+      "previewTitle": "Pré-visualização de impostos",
+      "productPriceLabel": "Preço do produto",
+      "previewShippingCost": "Custo de envio",
+      "previewRate": "Taxa de IVA",
+      "previewAmount": "Valor do IVA",
+      "previewFinal": "Preço final ao cliente"
+    },
+    "auction": {
+      "title": "Definições de leilão de transporte",
+      "description": "Duração dos leilões para transportadores.",
+      "durationTitle": "Duração do leilão",
+      "hoursLabel": "Horas",
+      "minutesLabel": "Minutos"
     }
   },
   "panel": {
@@ -297,6 +1087,349 @@
       "affiliateDirectory": "Diretório de afiliados",
       "rolesPermissions": "Funções e permissões"
     },
+    "supplierDashboard": {
+      "title": "Visão geral do negócio",
+      "subtitle": "Monitorize o desempenho de vendas e inventário num relance.",
+      "totalSalesRegular": "Vendas totais ( Regular )",
+      "totalSalesCompany": "Vendas totais ( Empresa )",
+      "activeOrders": "Pedidos ativos",
+      "cancelOrders": "Pedidos cancelados",
+      "totalProducts": "Total de produtos",
+      "revenueTitle": "Visão geral de receitas",
+      "revenueSubtitle": "Análise de receitas e volume de pedidos para o ano atual",
+      "periodThisYear": "Este ano",
+      "customer": "Cliente",
+      "company": "Empresa",
+      "orderId": "ID do pedido",
+      "customerName": "Nome do cliente",
+      "type": "Tipo",
+      "price": "Preço",
+      "payment": "Pagamento",
+      "status": "Estado",
+      "action": "Ação",
+      "viewOrder": "Ver pedido",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados"
+    },
+    "supplierProducts": {
+      "title": "Gestão de produtos",
+      "subtitle": "Faça a gestão do catálogo de produtos para venda a clientes.",
+      "addProduct": "ADICIONAR PRODUTO",
+      "uploadCsv": "CARREGAR FICHEIRO CSV",
+      "tabAll": "Todos",
+      "tabPending": "Pendente",
+      "tabRejected": "Rejeitado",
+      "tabRegular": "Regular",
+      "tabBulkOrder": "Pedido em massa",
+      "tabFeatured": "Destaque",
+      "filters": "Filtros:",
+      "allCategories": "Todas as categorias",
+      "emptyTitle": "Nenhum produto encontrado",
+      "emptyHint": "Tente outro filtro ou adicione um novo produto.",
+      "notFound": "Produto não encontrado.",
+      "backToProducts": "Voltar aos produtos",
+      "categories": {
+        "cementMortarConcrete": "Cimento, Argamassa e Betão",
+        "aggregates": "Agregados",
+        "steelRebar": "Aço e Vergalhão"
+      },
+      "add": {
+        "title": "Adicionar produto",
+        "breadcrumb": "Produto > Adicionar produto",
+        "submit": "SUBMETER",
+        "selectWarehouse": "Selecionar armazém"
+      }
+    },
+    "supplierPromoCodes": {
+      "title": "Gestão de códigos promocionais",
+      "subtitle": "Crie e faça a gestão de códigos promocionais para a sua plataforma de e-commerce",
+      "createPromoCode": "+ Criar código promocional",
+      "tabPromoCode": "Código promocional",
+      "tabPromoProduct": "Produto promocional",
+      "allStatus": "Todos os estados",
+      "colPromoCode": "Código promocional",
+      "colDiscountType": "Tipo de desconto",
+      "colDiscountValue": "Valor do desconto",
+      "colMinOrder": "Pedido mínimo",
+      "colUsageLimit": "Limite de uso",
+      "colUsedCount": "Utilizações",
+      "colStatus": "Estado",
+      "colExpiryDate": "Data de expiração",
+      "colAction": "Ação",
+      "discountTypePercentage": "Percentagem",
+      "discountTypeFixed": "Fixo",
+      "unlimited": "Ilimitado",
+      "unlimitedLower": "ilimitado",
+      "statusActive": "Ativo",
+      "statusDisabled": "Desativado",
+      "statusExpired": "Expirado",
+      "actionEdit": "Editar",
+      "actionDelete": "Eliminar",
+      "actionSeeDetails": "Ver detalhes",
+      "statusSection": "Estado",
+      "emptyPromoCodes": "Nenhum código promocional encontrado.",
+      "emptyPromoProductsTitle": "Ainda sem produtos promocionais",
+      "emptyPromoProductsHint": "Os produtos promocionais aparecerão aqui quando atribuídos a uma promoção.",
+      "create": {
+        "title": "Criar código promocional",
+        "breadcrumb": "Código promocional > Criar código promocional",
+        "back": "Voltar",
+        "submit": "CRIAR CÓDIGO PROMOCIONAL",
+        "promoCode": "Código promocional",
+        "promoCodePlaceholder": "SAVE10",
+        "discountType": "Tipo de desconto",
+        "discountTypePercentage": "Percentagem (%)",
+        "discountTypeFixed": "Valor fixo (€)",
+        "discountValue": "Valor do desconto",
+        "discountValuePercentagePlaceholder": "10 %",
+        "discountValueFixedPlaceholder": "€ 10",
+        "minOrderAmount": "Valor mínimo do pedido",
+        "minOrderPlaceholder": "€ 50",
+        "expiryDate": "Data de expiração",
+        "usageLimit": "Limite de uso",
+        "usageLimitPlaceholder": "100",
+        "applicableUsers": "Utilizadores aplicáveis",
+        "allUsers": "Todos os utilizadores",
+        "companyUsers": "Utilizador empresa",
+        "applicableCategory": "Categoria aplicável",
+        "selectCategory": "Selecionar categoria",
+        "applicableProduct": "Produto aplicável",
+        "selectProduct": "Selecionar produto",
+        "removeProduct": "Remover produto"
+      }
+    },
+    "supplierCustomerOrders": {
+      "title": "Pedidos de clientes regulares",
+      "subtitle": "Pedidos pequenos com compra instantânea e pagamento padrão",
+      "allStatus": "Todos os estados",
+      "totalOrders": "Total de pedidos",
+      "pending": "Pendente",
+      "processing": "Em processamento",
+      "completed": "Concluído",
+      "colOrderId": "ID do pedido",
+      "colCustomerName": "Nome do cliente",
+      "colEmail": "Email",
+      "colItems": "Itens",
+      "colTotal": "Total",
+      "colStatus": "Estado",
+      "colDate": "Data",
+      "colAction": "Ação",
+      "statusNew": "Novo",
+      "statusPending": "Pendente",
+      "statusProcessing": "Em processamento",
+      "statusAssigned": "Atribuído",
+      "statusCancel": "Cancelar",
+      "statusCompleted": "Concluído",
+      "actionSeeDetails": "Ver detalhes",
+      "actionAccept": "Aceitar",
+      "statusSection": "Estado",
+      "actionViewDetails": "Ver detalhes",
+      "orderDetailsTitle": "Detalhes do pedido",
+      "notFound": "Pedido não encontrado.",
+      "backToOrders": "Voltar aos pedidos",
+      "emptyOrders": "Nenhum pedido encontrado.",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados"
+    },
+    "supplierCompanyOrders": {
+      "title": "Pedidos de empresa (B2B)",
+      "subtitle": "Pedidos em volume com preços personalizados e pagamentos parcelados",
+      "tabDirectOrders": "Pedido direto",
+      "tabChatOrders": "Pedido por chat",
+      "sortBy": "Ordenar por:",
+      "allCompany": "Todas as empresas",
+      "allStatus": "Todos os estados",
+      "totalOrders": "Total de pedidos",
+      "pending": "Pendente",
+      "processing": "Em processamento",
+      "completed": "Concluído",
+      "activeCompanyOrders": "Pedidos de empresa ativos",
+      "totalB2bRevenue": "Receita B2B total",
+      "installmentActive": "Parcelamento ativo",
+      "paymentOverdue": "Pagamento em atraso",
+      "colOrderId": "ID do pedido",
+      "colCompanyName": "Nome da empresa",
+      "colCustomerName": "Nome do cliente",
+      "colEmail": "Email",
+      "colItems": "Itens",
+      "colTotal": "Total",
+      "colInstallmentAmount": "Valor da parcela",
+      "colStatus": "Estado",
+      "colInstallmentNumber": "Número da parcela",
+      "colDate": "Data",
+      "colAction": "Ação",
+      "statusNew": "Novo",
+      "statusPending": "Pendente",
+      "statusProcessing": "Em processamento",
+      "statusAssigned": "Atribuído",
+      "statusCancel": "Cancelar",
+      "statusCompleted": "Concluído",
+      "actionSeeDetails": "Ver detalhes",
+      "actionAccept": "Aceitar",
+      "statusSection": "Estado",
+      "orderDetailsTitle": "Detalhes do pedido",
+      "notFound": "Pedido não encontrado.",
+      "backToOrders": "Voltar aos pedidos",
+      "emptyOrders": "Nenhum pedido encontrado.",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados"
+    },
+    "supplierFiscalDocuments": {
+      "title": "Documentos fiscais",
+      "subtitle": "Gere e faça a gestão de documentos oficiais de negócio",
+      "generateInvoice": "+ Gerar nova fatura",
+      "totalDocuments": "Total de documentos",
+      "thisMonth": "Este mês",
+      "invoices": "Faturas",
+      "totalValue": "Valor total",
+      "colDocumentId": "ID DO DOCUMENTO",
+      "colType": "TIPO",
+      "colOrderId": "ID DO PEDIDO",
+      "colCustomer": "CLIENTE",
+      "colAmount": "VALOR",
+      "colDate": "DATA",
+      "colActions": "AÇÕES",
+      "typeInvoice": "Fatura",
+      "viewDocument": "Ver documento",
+      "downloadDocument": "Descarregar documento",
+      "emptyDocuments": "Nenhum documento encontrado.",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "modalTitle": "Gerar novo documento",
+      "modalSubtitle": "Crie documentos oficiais de negócio",
+      "modalOrderIdLabel": "ID do pedido",
+      "modalOrderIdPlaceholder": "Selecionar pedido",
+      "modalOrderIdHint": "Apenas entregas concluídas estão disponíveis para geração de documentos",
+      "modalCancel": "Cancelar",
+      "modalSubmit": "Gerar documento",
+      "modalClose": "Fechar"
+    },
+    "supplierChat": {
+      "title": "Chat",
+      "sidebarTitle": "Mensagens recentes"
+    },
+    "supplierBuyFromFactory": {
+      "title": "Comprar da fábrica",
+      "subtitle": "Explore materiais de construção de fábricas verificadas e envie consultas diretamente",
+      "sendMessage": "Enviar mensagem",
+      "emptyTitle": "Nenhum produto de fábrica encontrado",
+      "emptyHint": "Volte mais tarde para novos anúncios de fábricas.",
+      "notFound": "Produto de fábrica não encontrado.",
+      "backToProducts": "Voltar a Comprar da fábrica"
+    },
+    "supplierFactoryOrders": {
+      "title": "Comprar da fábrica",
+      "subtitle": "Crie e gerencie códigos promocionais para a sua plataforma de e-commerce",
+      "tabOrders": "Pedidos",
+      "tabTransportRequest": "Pedido de transporte",
+      "sortBy": "Ordenar por:",
+      "allCompany": "Todas as empresas",
+      "allStatus": "Todos os estados",
+      "colPoNumber": "Número PO",
+      "colFactoryName": "Nome da fábrica",
+      "colTotal": "Total",
+      "colInstallmentAmount": "Valor da parcela",
+      "colStatus": "Estado",
+      "colInstallmentNumber": "Número da parcela",
+      "colDate": "Data",
+      "colAction": "Ação",
+      "colProduct": "Produto",
+      "colQty": "Qtd.",
+      "colWeightSize": "Peso/Tamanho",
+      "colShippingCharge": "Taxa de envio",
+      "statusProduced": "Produzido",
+      "statusInProduction": "Em produção",
+      "statusReady": "Pronto",
+      "statusAssigned": "Atribuído",
+      "statusCancel": "Cancelado",
+      "statusCompleted": "Concluído",
+      "actionSeeDetails": "Ver detalhes",
+      "actionDelete": "Eliminar",
+      "actionPaid": "Pago",
+      "actionDecline": "Recusar",
+      "emptyOrders": "Nenhum pedido encontrado.",
+      "emptyTransport": "Nenhum pedido de transporte encontrado.",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "orderDetailsTitle": "Detalhes do pedido",
+      "breadcrumbLabel": "Navegação",
+      "breadcrumbFactoryOrder": "Pedido de fábrica",
+      "breadcrumbChatOrder": "Pedido por chat",
+      "breadcrumbOrderDetails": "Detalhes do pedido",
+      "notFound": "Pedido não encontrado.",
+      "backToOrders": "Voltar aos pedidos"
+    },
+    "supplierInventory": {
+      "title": "Gestão de inventário",
+      "subtitle": "Acompanhe os níveis de stock e sincronize o inventário comprado das fábricas",
+      "addNewProducts": "+ ADICIONAR NOVOS PRODUTOS",
+      "totalProducts": "Total de produtos",
+      "activeSkus": "SKU'S ativos",
+      "totalStockValue": "Valor total do stock",
+      "lowStockItems": "Itens com stock baixo",
+      "needReorder": "Necessita reordenação",
+      "outOfStock": "Sem stock",
+      "urgentAction": "Ação urgente necessária",
+      "tabManagement": "Gestão de inventário",
+      "tabErp": "Conectar ao seu ERP",
+      "productList": "Lista de produtos",
+      "sortBy": "Ordenar por:",
+      "allFactory": "Todas as fábricas",
+      "allStatus": "Todos os estados",
+      "colInventoryNumber": "Número de inventário",
+      "colCategory": "Categoria",
+      "colProductName": "Nome do produto",
+      "colSku": "SKU",
+      "colCurrentStock": "Stock atual",
+      "colPrice": "Preço",
+      "colFactoryName": "Nome da fábrica",
+      "colWarehouseLocation": "Localização do armazém",
+      "colStatus": "Estado",
+      "colAction": "Ação",
+      "statusGood": "Bom",
+      "statusLow": "Baixo",
+      "statusOutOfStock": "Sem stock",
+      "actionRestock": "Reabastecer",
+      "actionEdit": "Editar",
+      "actionDelete": "Eliminar",
+      "actionSeeDetails": "Ver detalhes",
+      "emptyProducts": "Nenhum produto de inventário encontrado.",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "erpTitle": "Conectar ao seu ERP",
+      "erpSubtitle": "Sincronize automaticamente os níveis de inventário do seu sistema ERP.",
+      "addModalTitle": "Adicionar novos produtos",
+      "addModalSubtitle": "Criar novo produto",
+      "editModalTitle": "Editar produto",
+      "editModalSubtitle": "Atualizar detalhes do produto",
+      "restockModalTitle": "Quantidade de reabastecimento",
+      "restockModalSubtitle": "Reabastecer produto",
+      "modalClose": "Fechar",
+      "modalCancel": "Cancelar",
+      "modalSendOffer": "Enviar oferta",
+      "fieldWarehouse": "Localização do armazém",
+      "fieldWarehousePlaceholder": "Selecionar armazém",
+      "fieldCategory": "Categoria",
+      "fieldCategoryPlaceholder": "Selecionar categoria",
+      "fieldProductName": "Nome do produto",
+      "fieldProductNamePlaceholder": "Escreva o nome do produto",
+      "fieldSku": "SKU",
+      "fieldSkuPlaceholder": "Escreva o SKU do produto",
+      "fieldTotalQuantity": "Quantidade total",
+      "fieldTotalQuantityPlaceholder": ".toneladas",
+      "fieldPrice": "Preço",
+      "fieldPricePlaceholder": "Preço de cada produto",
+      "fieldFactoryName": "Nome da fábrica",
+      "fieldFactoryNamePlaceholder": "Escreva o nome da fábrica",
+      "fieldAddQuantity": "Adicionar quantidade",
+      "fieldAddQuantityPlaceholder": "20 pices"
+    },
     "profile": {
       "title": "O meu perfil",
       "subtitle": "Faça a gestão da sua conta e preferências da loja.",
@@ -317,6 +1450,7 @@
       "updateProfile": "Atualizar perfil",
       "saveChanges": "GUARDAR ALTERAÇÕES",
       "warehouseLocation": "Localização do armazém",
+      "warehouseLocationSupplier": "Localização do armazém",
       "warehouseN": "Armazém {{n}}",
       "warehousePlaceholder": "Rua, cidade, região, código postal",
       "addWarehouse": "+ Adicionar novo armazém",
@@ -332,7 +1466,7 @@
       "ibanNumber": "Número IBAN",
       "ibanPlaceholder": "PT50 0000 0000 0000 0000 0000 0",
       "ibanPhoneEupago": "Número de telefone ( número Eupago )",
-      "ibanPhoneEpagar": "Número de telefone ( número E-pagar )",
+      "ibanPhoneEpagar": "Número de telefone ( número E-pago )",
       "ibanPhoneBackup": "Número de telefone ( número de reserva )",
       "ibanPhonePlaceholder": "8+ caracteres",
       "ibanPhonePlaceholderLong": "11+ caracteres",
@@ -791,7 +1925,10 @@
         "items": [
           "Como pedir uma devolução",
           "Critérios de elegibilidade para devolução",
-          { "label": "Métodos e estado do reembolso", "href": "/return-policy" },
+          {
+            "label": "Métodos e estado do reembolso",
+            "href": "/return-policy"
+          },
           "Produtos não returnáveis"
         ]
       },
@@ -1332,7 +2469,7 @@
       "sku": "SKU",
       "skuPlaceholder": "Introduza o SKU",
       "price": "Preço",
-      "pricePlaceholder": "$0.00",
+      "pricePlaceholder": "€0.00",
       "shippingDetails": "Detalhes de envio e descarga",
       "unloadingNeeds": "Tipos de necessidades de descarga",
       "unloadingPlaceholder": "ex.: Empilhador, Manual, Guindaste",
@@ -1349,6 +2486,567 @@
   "order": {
     "details": {
       "back": "Voltar"
+    }
+  },
+  "factoryDashboard": {
+    "title": "Visão geral do painel",
+    "subtitle": "Bem-vindo de volta! Veja o que está a acontecer na sua fábrica hoje.",
+    "cards": {
+      "totalOrders": "Total de encomendas",
+      "pendingOrders": "Encomendas pendentes",
+      "completedOrders": "Encomendas concluídas",
+      "totalRevenue": "Receita total",
+      "adminCommission": "Comissão admin",
+      "adminCommissionDesc": "20% por encomenda"
+    },
+    "revenueOverview": {
+      "title": "Visão geral da receita",
+      "subtitle": "Receita mensal dos últimos 6 meses",
+      "filterAria": "Filtro do período da receita"
+    },
+    "orderStatus": {
+      "title": "Estado das encomendas",
+      "filterAria": "Filtro do período do estado das encomendas",
+      "completed": "Concluídas",
+      "inProduction": "Em produção",
+      "pending": "Pendentes"
+    },
+    "filters": {
+      "thisYear": "Este ano",
+      "lastYear": "Ano passado",
+      "thisMonth": "Este mês",
+      "thisWeek": "Esta semana"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    }
+  },
+  "factoryProducts": {
+    "title": "Gestão de produtos",
+    "subtitle": "Faça a gestão do seu catálogo de produtos para venda a clientes.",
+    "addProduct": "Adicionar produto",
+    "uploadCsv": "Carregar ficheiro CSV",
+    "filters": "Filtros:",
+    "allCategories": "Todas as categorias",
+    "tabs": {
+      "all": "Todos",
+      "active": "Ativos",
+      "pending": "Pendentes",
+      "rejected": "Rejeitados"
+    },
+    "form": {
+      "addTitle": "Adicionar produto",
+      "editTitle": "Editar produto",
+      "addBreadcrumb": "Produto > Adicionar produto",
+      "editBreadcrumb": "Produto > Editar produto",
+      "submit": "Submeter",
+      "update": "Atualizar"
+    },
+    "priceText": "Preço: {{price}} por saco (50 kg)",
+    "priceFallback": "Preço: —",
+    "untitled": "Sem título"
+  },
+  "factoryOrders": {
+    "title": "Encomendas de fornecedores",
+    "subtitle": "Encomendas em volume com preços personalizados e pagamentos a prestações",
+    "cards": {
+      "activeSupplierOrders": "Encomendas ativas de fornecedores",
+      "totalB2bRevenue": "Receita B2B total",
+      "installmentActive": "Prestações ativas",
+      "installmentActiveDesc": "encomendas",
+      "paymentOverdue": "Pagamentos em atraso",
+      "paymentOverdueDesc": "3 encomendas"
+    },
+    "columns": {
+      "orderId": "ID da encomenda",
+      "supplierName": "Nome do fornecedor",
+      "total": "Total",
+      "installmentAmount": "Valor da prestação",
+      "status": "Estado",
+      "installmentNumber": "Número da prestação",
+      "date": "Data"
+    },
+    "searchPlaceholder": "Pesquisar encomenda, fornecedor, estado...",
+    "sortBy": "Ordenar por:",
+    "allSupplier": "Todos os fornecedores",
+    "allStatus": "Todos os estados",
+    "seeDetails": "Ver detalhes",
+    "status": {
+      "produced": "Produzido",
+      "inProduction": "Em produção",
+      "ready": "Pronto",
+      "assigned": "Atribuído",
+      "cancel": "Cancelado",
+      "completed": "Concluído"
+    },
+    "installments": {
+      "1": "1.ª prestação",
+      "2": "2.ª prestação",
+      "3": "3.ª prestação",
+      "4": "4.ª prestação",
+      "5": "5.ª prestação",
+      "6": "6.ª prestação"
+    },
+    "details": {
+      "unloadingType": "Camião basculante",
+      "accessCondition": "Descarga manual",
+      "paidNote": "Pague €10,040/mês durante 10 meses",
+      "duration": "10 meses"
+    }
+  },
+  "factoryDeliveryLogistics": {
+    "title": "Entrega e logística",
+    "subtitle": "Faça a gestão de envios e atribua transportadores",
+    "requestDelivery": "+ Solicitar entrega",
+    "activeAuctions": {
+      "title": "Leilões ativos",
+      "subtitle": "Propostas pendentes e itens em leilão"
+    },
+    "assignedDeliveries": {
+      "title": "Entregas atribuídas",
+      "subtitle": "Acompanhe encomendas já aceites por transportadores"
+    }
+  },
+  "supplierDeliveryLogistics": {
+    "title": "Entrega e logística",
+    "subtitle": "Faça a gestão de envios e atribua transportadores",
+    "startAuction": "+ Iniciar leilão",
+    "startAuctionTitle": "Iniciar leilão",
+    "activeDetailTitle": "Leilões ativos",
+    "assignedDetailTitle": "Detalhes das entregas atribuídas",
+    "activeAuctions": {
+      "title": "Leilões ativos",
+      "subtitle": "Propostas pendentes e itens em leilão"
+    },
+    "assignedDeliveries": {
+      "title": "Entregas atribuídas",
+      "subtitle": "Acompanhe encomendas já aceites por transportadores"
+    }
+  },
+  "supplierPaymentsFinance": {
+    "title": "Ganhos e pagamentos",
+    "subtitle": "Faça a gestão dos seus ganhos e informações de pagamento",
+    "paymentHistory": "Histórico de pagamentos",
+    "cards": {
+      "totalEarnings": "Ganhos totais",
+      "thisMonth": "Este mês",
+      "adminCommission": "Comissão admin",
+      "adminCommissionDesc": "20% por encomenda",
+      "availableBalance": "Saldo disponível",
+      "withdrawFunds": "Levantar fundos",
+      "pendingAmount": "Montante pendente"
+    },
+    "columns": {
+      "date": "Data",
+      "type": "Tipo",
+      "accountType": "Tipo de conta",
+      "accountNumber": "Número de conta",
+      "amount": "Montante",
+      "status": "Estado"
+    },
+    "type": {
+      "withdrawal": "Levantamento"
+    },
+    "accountType": {
+      "stripe": "Stripe",
+      "bankTransfer": "Transferência bancária"
+    },
+    "status": {
+      "approved": "Aprovado",
+      "pending": "Pendente"
+    },
+    "withdraw": {
+      "title": "Levantar fundos",
+      "amount": "Montante",
+      "businessName": "Nome da empresa/organização",
+      "routingNumber": "Número de routing",
+      "accountNumber": "Número de conta",
+      "cancel": "Cancelar",
+      "submit": "Enviar",
+      "closeOverlay": "Fechar overlay",
+      "close": "Fechar"
+    }
+  },
+  "supplierAnalytics": {
+    "title": "Analítica",
+    "subtitle": "Informações abrangentes sobre o negócio e métricas de desempenho",
+    "cards": {
+      "totalRevenue": "Receita total",
+      "procurementExpenses": "Despesas de compras",
+      "factoryPurchases": "Compras de fábrica",
+      "netProfit": "Lucro líquido",
+      "outstandingDues": "Dívidas pendentes",
+      "fromCompanyClients": "De clientes empresariais"
+    },
+    "charts": {
+      "revenueExpensesProfit": "Receita, despesas e lucro",
+      "revenue": "Receita",
+      "expenses": "Despesas",
+      "profit": "Lucro",
+      "revenueBreakdown": "Distribuição da receita",
+      "regularSales": "Vendas regulares",
+      "companySales": "Vendas empresariais",
+      "salesByCustomerType": "Vendas por tipo de cliente",
+      "regularCustomers": "Clientes regulares",
+      "companyCustomers": "Clientes empresariais (B2B)",
+      "insight": "Insight: as vendas empresariais (B2B) representam 74% da receita total, mostrando forte adoção empresarial. As vendas a clientes regulares cresceram 7,7% mês a mês."
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    }
+  },
+  "supplierReviews": {
+    "title": "Avaliações de clientes",
+    "subtitle": "Faça a gestão das classificações e feedback dos clientes para os seus produtos",
+    "averageRating": "Classificação média",
+    "basedOnReviews": "Baseado em {{count}} avaliações",
+    "ratingDistribution": "Distribuição de classificações",
+    "totalReviews": "Total de avaliações",
+    "positiveReviews": "Avaliações positivas",
+    "positiveReviewsDesc": "Classificações de 4-5 estrelas",
+    "orderLabel": "Encomenda",
+    "customerType": {
+      "regular": "Regular",
+      "company": "Empresa"
+    }
+  },
+  "supplierReturnRequests": {
+    "title": "Pedidos de devolução",
+    "subtitle": "Faça a gestão e responda a pedidos de devolução de clientes",
+    "sortBy": "ORDENAR POR:",
+    "stats": {
+      "total": "Total de pedidos",
+      "pendingReview": "Revisão pendente",
+      "approved": "Aprovados",
+      "rejected": "Rejeitados"
+    },
+    "filters": {
+      "allStatus": "Todos os estados"
+    },
+    "columns": {
+      "returnId": "ID DE DEVOLUÇÃO",
+      "orderId": "ID DA ENCOMENDA",
+      "customer": "CLIENTE",
+      "products": "PRODUTOS",
+      "reason": "MOTIVO",
+      "requestDate": "DATA DO PEDIDO",
+      "status": "ESTADO",
+      "action": "AÇÃO"
+    },
+    "status": {
+      "pending": "Pendente",
+      "under_review": "Em revisão",
+      "approved": "Aprovado",
+      "rejected": "Rejeitado",
+      "item_received": "Item recebido",
+      "inspection_progress": "Inspeção em progresso",
+      "inspection_pass": "Inspeção aprovada",
+      "inspection_rejected": "Inspeção rejeitada"
+    },
+    "actionSeeDetails": "Ver detalhes",
+    "actionReject": "Rejeitar",
+    "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "detail": {
+      "title": "Devolução {{id}}",
+      "back": "Voltar à lista de devoluções",
+      "notFound": "Pedido de devolução não encontrado.",
+      "orderReceived": "Encomenda {{orderId}} - Recebido {{date}}",
+      "returnDetails": "Detalhes da devolução",
+      "returnedProducts": "Produtos devolvidos",
+      "productMeta": "SKU: {{sku}} - Qtd: {{qty}}",
+      "refundAccount": "Número da conta de reembolso",
+      "totalRefund": "Valor total do reembolso",
+      "customerEvidence": "Evidência do cliente",
+      "customerInfo": "Informações do cliente",
+      "customerId": "ID: {{id}}",
+      "orderSummary": "Resumo da encomenda",
+      "orderId": "ID da encomenda",
+      "items": "Itens",
+      "itemCount": "{{count}} item(ns)",
+      "requestDate": "Data do pedido",
+      "totalValue": "Valor total",
+      "prevImage": "Imagem anterior",
+      "nextImage": "Próxima imagem"
+    }
+  },
+  "supplierDisputesResolution": {
+    "title": "Resolução de disputas",
+    "subtitle": "Faça a gestão de disputas, devoluções e casos de resolução de clientes",
+    "sortBy": "ORDENAR POR:",
+    "empty": "Nenhuma disputa corresponde aos seus filtros.",
+    "filters": {
+      "allStatus": "Todos os estados"
+    },
+    "columns": {
+      "disputeId": "ID DA DISPUTA",
+      "orderId": "ID DA ENCOMENDA",
+      "customer": "CLIENTE",
+      "supplier": "FORNECEDOR",
+      "issue": "PROBLEMA",
+      "status": "ESTADO",
+      "registered": "REGISTADO",
+      "action": "AÇÃO"
+    },
+    "status": {
+      "pending": "Pendente",
+      "under_review": "Em revisão",
+      "resolved": "Resolvido"
+    },
+    "actions": {
+      "seeDetails": "Ver detalhes",
+      "status": "Estado"
+    },
+    "pagination": {
+      "summary": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Próximo"
+    },
+    "detail": {
+      "back": "Voltar à lista de disputas",
+      "title": "{{id}} · Disputa",
+      "notFound": "Disputa não encontrada."
+    }
+  },
+  "supplierInvoices": {
+    "title": "Faturas de comissão",
+    "subtitle": "Faça a gestão e acompanhe todas as faturas de comissão geradas a partir de encomendas do marketplace.",
+    "typeInvoice": "Fatura",
+    "viewAria": "Ver {{id}}",
+    "downloadAria": "Descarregar {{id}}",
+    "columns": {
+      "invoiceId": "ID DA FATURA",
+      "type": "TIPO",
+      "orderId": "ID DA ENCOMENDA",
+      "customer": "CLIENTE",
+      "amount": "MONTANTE",
+      "date": "DATA",
+      "actions": "AÇÕES"
+    },
+    "download": {
+      "invoiceId": "ID da fatura",
+      "type": "Tipo",
+      "orderId": "ID da encomenda",
+      "customer": "Cliente",
+      "amount": "Montante",
+      "date": "Data"
+    },
+    "pagination": {
+      "summary": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "previous": "Anterior",
+      "next": "Próximo"
+    }
+  },
+  "factoryInvoices": {
+    "title": "Faturas de comissão",
+    "subtitle": "Faça a gestão e acompanhe todas as faturas de comissão geradas a partir de encomendas do marketplace.",
+    "searchPlaceholder": "Pesquisar ID da fatura, ID da encomenda, cliente...",
+    "typeInvoice": "Fatura",
+    "viewAria": "Ver {{id}}",
+    "downloadAria": "Descarregar {{id}}",
+    "columns": {
+      "invoiceId": "ID DA FATURA",
+      "type": "TIPO",
+      "orderId": "ID DA ENCOMENDA",
+      "customer": "CLIENTE",
+      "amount": "MONTANTE",
+      "date": "DATA",
+      "actions": "AÇÕES"
+    },
+    "download": {
+      "invoiceId": "ID da fatura",
+      "type": "Tipo",
+      "orderId": "ID da encomenda",
+      "customer": "Cliente",
+      "amount": "Montante",
+      "date": "Data"
+    }
+  },
+  "affiliateOverview": {
+    "title": "Painel de ganhos de afiliados",
+    "subtitle": "Monitorize o desempenho e maximize os ganhos.",
+    "cards": {
+      "totalReferredClient": "Total de clientes referidos",
+      "activeClient": "Cliente ativo",
+      "pendingCommissions": "Comissões pendentes",
+      "paidCommission": "Comissão paga",
+      "totalEarnings": "Ganhos totais"
+    },
+    "tier": {
+      "label": "Estado do nível ativo",
+      "tierName": "Nível Starter",
+      "headline": "Recebe uma taxa de comissão de 5%!",
+      "description": "Continue a convidar clientes para desbloquear níveis superiores com comissões ainda maiores.",
+      "progressLabel": "Progresso para o nível Bronze (10%)",
+      "clients": "{{current}}/{{target}} clientes",
+      "helpText": "Precisa de mais {{count}} clientes ativos para alcançar o nível Bronze."
+    },
+    "earningAnalytics": {
+      "title": "Análise de ganhos",
+      "subtitle": "Acompanhar ganhos",
+      "filterAria": "Filtro do período da análise de ganhos"
+    },
+    "filters": {
+      "thisYear": "Este ano",
+      "lastYear": "Ano passado"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    }
+  },
+  "affiliateReferralChannels": {
+    "title": "Canais de referência",
+    "subtitle": "Crie, faça a gestão e acompanhe os seus links de referência em vários canais.",
+    "primaryChannel": "Canal principal",
+    "active": "ATIVO",
+    "referralCodeTitle": "O seu código de referência",
+    "referralCodeSubtitle": "Partilhe este código promocional com clientes.",
+    "promotionalCode": "Código promocional",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "directShareLink": "Link de partilha direta",
+    "shareProposal": "Partilhar proposta",
+    "showQrAria": "Mostrar código QR",
+    "proposalLinkCopied": "Link da proposta copiado",
+    "shareTitle": "Proposta de referência",
+    "shareText": "Use o meu código promocional {{code}} para começar.",
+    "qr": {
+      "title": "Código QR de referência",
+      "subtitle": "Leia para abrir o seu link de referência.",
+      "alt": "Código QR para {{link}}",
+      "closeOverlay": "Fechar sobreposição",
+      "close": "Fechar"
+    }
+  },
+  "affiliateReferredClients": {
+    "title": "Os seus clientes referidos",
+    "subtitle": "Monitorize a atividade dos clientes, a receita gerada, as comissões e o desempenho de referência num só lugar.",
+    "searchPlaceholder": "Pesquisar nome, estado, data, receita...",
+    "columns": {
+      "name": "Nome",
+      "registeredDate": "Data de registo",
+      "revenueGenerated": "Receita gerada",
+      "commissionEarned": "Comissão ganha",
+      "commissionExpiry": "Validade da comissão",
+      "status": "Estado"
+    },
+    "status": {
+      "active": "Ativo",
+      "expired": "Expirado"
+    }
+  },
+  "affiliateCommissions": {
+    "title": "Ganhos e pagamentos",
+    "subtitle": "Faça a gestão dos seus ganhos e informações de pagamento",
+    "paymentHistory": "Histórico de pagamentos",
+    "searchPlaceholder": "Pesquisar data, tipo, conta, montante, estado...",
+    "cards": {
+      "totalEarnings": "Ganhos totais",
+      "thisMonth": "Este mês",
+      "availableBalance": "Saldo disponível",
+      "withdrawFunds": "Levantar fundos",
+      "pendingAmount": "Montante pendente",
+      "lifeTime": "Vitalício"
+    },
+    "columns": {
+      "date": "Data",
+      "type": "Tipo",
+      "accountType": "Tipo de conta",
+      "accountNumber": "Número da conta",
+      "amount": "Montante",
+      "status": "Estado"
+    },
+    "type": {
+      "withdrawal": "Levantamento"
+    },
+    "accountType": {
+      "stripe": "Stripe",
+      "bankTransfer": "Transferência bancária"
+    },
+    "status": {
+      "approved": "Aprovado",
+      "pending": "Pendente"
+    },
+    "withdraw": {
+      "title": "Levantar fundos",
+      "amount": "Montante",
+      "businessName": "Nome da empresa/organização",
+      "routingNumber": "Número de routing",
+      "accountNumber": "Número da conta",
+      "cancel": "Cancelar",
+      "submit": "Submeter",
+      "closeOverlay": "Fechar sobreposição",
+      "close": "Fechar"
+    }
+  },
+  "affiliateLevels": {
+    "title": "Níveis de afiliados",
+    "subtitle": "Desbloqueie novos níveis e aproveite maiores recompensas à medida que as suas referências crescem.",
+    "gamifiedAchievements": "Conquistas gamificadas",
+    "tierStatusTitle": "Estado do nível de afiliado",
+    "tierStatusDescription": "À medida que a sua base de clientes referidos cresce, avança automaticamente para níveis superiores e desbloqueia melhores comissões!",
+    "activeReferrals": "Referências ativas:",
+    "clientsCount": "{{count}} clientes",
+    "progressToBronze": "Progresso para o nível Bronze",
+    "helpText": "Precisa de mais {{count}} clientes para desbloquear a comissão de 10%!",
+    "active": "Ativo",
+    "commissionSplit": "Divisão de comissão",
+    "commissionSplitDesc": "Divisão de pagamento recorrente vitalício",
+    "tiers": {
+      "starter": {
+        "name": "Nível Starter",
+        "requirement": "NÍVEL DE ENTRADA"
+      },
+      "bronze": {
+        "name": "Nível Bronze",
+        "requirement": "São necessários 100+ clientes ativos"
+      },
+      "silver": {
+        "name": "Nível Silver",
+        "requirement": "São necessários 200+ clientes ativos"
+      },
+      "gold": {
+        "name": "Nível Gold",
+        "requirement": "São necessários 300+ clientes ativos"
+      },
+      "premium": {
+        "name": "Nível Premium",
+        "requirement": "São necessários 500+ clientes ativos"
+      }
     }
   }
 }
