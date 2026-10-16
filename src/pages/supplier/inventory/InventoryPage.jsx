@@ -1,14 +1,24 @@
-import { useCallback, useMemo, useState } from 'react';
-import { FiAlertCircle, FiAlertTriangle, FiChevronDown } from 'react-icons/fi';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import toast from 'react-hot-toast';
+import { FiAlertCircle, FiAlertTriangle } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import Seo from '@/components/common/Seo/Seo';
 import DataTable from '@/components/data-display/DataTable/DataTable';
 import StatusBadge from '@/components/data-display/DataTable/StatusBadge';
 import StatusCard from '@/components/data-display/StatusCard';
+import { getApiErrorMessage, parseNumber, toSelectOptions } from '@/features/supplier/apiError';
 import {
-  DEMO_SUPPLIER_INVENTORY,
-  DEMO_SUPPLIER_INVENTORY_CATEGORIES,
-  DEMO_SUPPLIER_INVENTORY_FACTORIES,
+  useCreateInventoryProductMutation,
+  useDeleteInventoryProductMutation,
+  useGetCategoriesQuery,
+  useGetInventoryProductsQuery,
+  useGetInventoryStatsQuery,
+  useGetProductTypesQuery,
+  useGetSubcategoriesQuery,
+  useRestockInventoryProductMutation,
+} from '@/features/supplier/inventory/inventoryApi';
+import { buildInventoryCreateBody } from '@/features/supplier/inventory/inventoryMappers';
+import {
   DEMO_SUPPLIER_INVENTORY_STAT_CARDS,
   DEMO_SUPPLIER_INVENTORY_WAREHOUSES,
   SUPPLIER_INVENTORY_PAGE_SIZE,
@@ -49,27 +59,66 @@ function InventoryStatusBadge({ status, label }) {
   return <StatusBadge status={status} label={label} />;
 }
 
-function deriveInventoryStatus(stock) {
-  const value = Number(stock);
-  if (value <= 0) return { status: 'out-of-stock', statusLabel: 'Out of stock' };
-  if (value <= 200) return { status: 'low', statusLabel: 'Low' };
-  return { status: 'good', statusLabel: 'Good' };
-}
-
 export default function InventoryPage() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(TAB_IDS.management);
   const [factoryFilter, setFactoryFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [products, setProducts] = useState(DEMO_SUPPLIER_INVENTORY.products);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [restockModalOpen, setRestockModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [restockProduct, setRestockProduct] = useState(null);
+  const [modalError, setModalError] = useState('');
+  const [restockError, setRestockError] = useState('');
 
-  // TODO: replace DEMO_* with supplier inventory API fetch
-  const stats = DEMO_SUPPLIER_INVENTORY.stats;
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setDebouncedSearch(search.trim());
+      setPage(1);
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [search]);
+
+  const {
+    data: stats,
+    isLoading: statsLoading,
+    isError: statsError,
+  } = useGetInventoryStatsQuery();
+
+  const {
+    data: inventory,
+    isLoading: listLoading,
+    isError: listError,
+    error: listQueryError,
+  } = useGetInventoryProductsQuery({
+    page,
+    limit: SUPPLIER_INVENTORY_PAGE_SIZE,
+    search: debouncedSearch,
+  });
+
+  const { data: categories = [] } = useGetCategoriesQuery();
+  const [createInventoryProduct, { isLoading: creating }] =
+    useCreateInventoryProductMutation();
+  const [restockInventoryProduct, { isLoading: restocking }] =
+    useRestockInventoryProductMutation();
+  const [deleteInventoryProduct] = useDeleteInventoryProductMutation();
+
+  const products = inventory?.products ?? [];
+  const total = inventory?.total ?? 0;
+  const loading = listLoading || statsLoading;
+
+  const [modalCategoryId, setModalCategoryId] = useState('');
+  const [modalSubCategoryId, setModalSubCategoryId] = useState('');
+
+  const { data: subCategories = [] } = useGetSubcategoriesQuery(modalCategoryId, {
+    skip: !modalCategoryId,
+  });
+  const { data: productTypes = [] } = useGetProductTypesQuery(modalSubCategoryId, {
+    skip: !modalSubCategoryId,
+  });
 
   const tabs = useMemo(
     () => [
@@ -85,17 +134,18 @@ export default function InventoryPage() {
     [t],
   );
 
-  const factoryOptions = useMemo(
-    () =>
-      DEMO_SUPPLIER_INVENTORY_FACTORIES.map((factory) => ({
-        value: factory.value,
-        label:
-          factory.value === 'all'
-            ? t('panel.supplierInventory.allFactory')
-            : factory.label,
-      })),
-    [t],
-  );
+  const factoryOptions = useMemo(() => {
+    const unique = new Map();
+    products.forEach((row) => {
+      if (row.factoryId && row.factoryName) {
+        unique.set(row.factoryId, row.factoryName);
+      }
+    });
+    return [
+      { value: 'all', label: t('panel.supplierInventory.allFactory') },
+      ...Array.from(unique.entries()).map(([value, label]) => ({ value, label })),
+    ];
+  }, [products, t]);
 
   const statusOptions = useMemo(
     () => [
@@ -110,33 +160,62 @@ export default function InventoryPage() {
     [t],
   );
 
-  const handleDelete = useCallback((row) => {
-    setProducts((prev) => prev.filter((item) => item.id !== row.id));
-    // TODO: wire inventory delete API
-  }, []);
+  const categoryOptions = useMemo(() => toSelectOptions(categories), [categories]);
+  const subCategoryOptions = useMemo(
+    () => toSelectOptions(subCategories),
+    [subCategories],
+  );
+  const productTypeOptions = useMemo(
+    () => toSelectOptions(productTypes),
+    [productTypes],
+  );
+
+  const handleDelete = useCallback(
+    async (row) => {
+      try {
+        await deleteInventoryProduct(row.id).unwrap();
+      } catch (error) {
+        toast.error(
+          getApiErrorMessage(
+            error,
+            t('panel.supplierInventory.deleteFailed', {
+              defaultValue: 'Could not delete inventory product.',
+            }),
+          ),
+        );
+      }
+    },
+    [deleteInventoryProduct, t],
+  );
 
   const handleRestock = useCallback((row) => {
+    setRestockError('');
     setRestockProduct(row);
     setRestockModalOpen(true);
   }, []);
 
   const handleEdit = useCallback((row) => {
-    const warehouse =
-      DEMO_SUPPLIER_INVENTORY_WAREHOUSES.find(
-        (item) => item.label === row.warehouseLocation,
-      );
-    const category = DEMO_SUPPLIER_INVENTORY_CATEGORIES.find(
-      (item) => item.label === row.category,
+    const warehouse = DEMO_SUPPLIER_INVENTORY_WAREHOUSES.find(
+      (item) => item.label === row.warehouseLocation,
     );
 
+    setModalError('');
+    setModalCategoryId(row.categoryId || '');
+    setModalSubCategoryId(row.subCategoryId || '');
     setEditingProduct({
       id: row.id,
       warehouseId: warehouse?.value || '',
-      categoryId: category?.value || '',
+      warehouseLocation: row.warehouseLocation,
+      categoryId: row.categoryId || '',
+      subCategoryId: row.subCategoryId || '',
+      productTypeId: row.productTypeId || '',
       productName: row.productName,
       sku: row.sku,
       totalQuantity: String(row.currentStock),
-      price: row.price.replace('€', ''),
+      price:
+        row.rawPrice != null
+          ? String(row.rawPrice)
+          : String(row.price || '').replace('€', ''),
       factoryName: row.factoryName,
     });
     setAddModalOpen(true);
@@ -150,9 +229,7 @@ export default function InventoryPage() {
             id: 'see-details',
             label: t('panel.supplierInventory.actionSeeDetails'),
             variant: 'header',
-            onClick: () => {
-              // TODO: wire inventory detail route
-            },
+            onClick: () => {},
           },
         ];
       }
@@ -187,19 +264,13 @@ export default function InventoryPage() {
     });
   }, [products, factoryFilter, statusFilter]);
 
-  const total = filteredProducts.length;
-  const pageCount = Math.max(
-    1,
-    Math.ceil(total / SUPPLIER_INVENTORY_PAGE_SIZE),
-  );
+  const pageCount = Math.max(1, Math.ceil(total / SUPPLIER_INVENTORY_PAGE_SIZE));
   const safePage = Math.min(page, pageCount);
-  const pagedProducts = filteredProducts.slice(
-    (safePage - 1) * SUPPLIER_INVENTORY_PAGE_SIZE,
-    safePage * SUPPLIER_INVENTORY_PAGE_SIZE,
-  );
 
-  const from =
-    total === 0 ? 0 : (safePage - 1) * SUPPLIER_INVENTORY_PAGE_SIZE + 1;
+  useEffect(() => {
+    if (page > pageCount) setPage(pageCount);
+  }, [page, pageCount]);
+  const from = total === 0 ? 0 : (safePage - 1) * SUPPLIER_INVENTORY_PAGE_SIZE + 1;
   const to =
     total === 0
       ? 0
@@ -263,97 +334,129 @@ export default function InventoryPage() {
 
   const handleAddProduct = useCallback(() => {
     setEditingProduct(null);
+    setModalCategoryId('');
+    setModalSubCategoryId('');
+    setModalError('');
     setAddModalOpen(true);
   }, []);
 
   const handleAddModalClose = useCallback(() => {
+    if (creating) return;
     setAddModalOpen(false);
     setEditingProduct(null);
-  }, []);
+    setModalError('');
+  }, [creating]);
 
   const handleAddSubmit = useCallback(
-    (payload) => {
-      const warehouse = DEMO_SUPPLIER_INVENTORY_WAREHOUSES.find(
-        (item) => item.value === payload.warehouseId,
-      );
-      const category = DEMO_SUPPLIER_INVENTORY_CATEGORIES.find(
-        (item) => item.value === payload.categoryId,
-      );
-      const stock = Number(payload.totalQuantity) || 0;
-      const statusMeta = deriveInventoryStatus(stock);
-      const factoryMatch = DEMO_SUPPLIER_INVENTORY_FACTORIES.find(
-        (item) =>
-          item.label.toLowerCase() === payload.factoryName?.toLowerCase(),
-      );
+    async (payload) => {
+      setModalError('');
+      setModalCategoryId(payload.categoryId || '');
+      setModalSubCategoryId(payload.subCategoryId || '');
 
       if (payload.id) {
-        setProducts((prev) =>
-          prev.map((item) =>
-            item.id === payload.id
-              ? {
-                  ...item,
-                  category: category?.label || item.category,
-                  productName: payload.productName,
-                  sku: payload.sku,
-                  currentStock: stock,
-                  price: payload.price.startsWith('€')
-                    ? payload.price
-                    : `€${payload.price}`,
-                  factoryName: payload.factoryName,
-                  factoryId: factoryMatch?.value || item.factoryId,
-                  warehouseLocation:
-                    warehouse?.label || item.warehouseLocation,
-                  status: statusMeta.status,
-                  statusLabel: statusMeta.statusLabel,
-                }
-              : item,
+        setModalError(
+          t('panel.supplierInventory.updateUnsupported', {
+            defaultValue:
+              'Inventory details cannot be edited. Use restock to add quantity.',
+          }),
+        );
+        return;
+      }
+
+      try {
+        await createInventoryProduct(
+          buildInventoryCreateBody(payload, DEMO_SUPPLIER_INVENTORY_WAREHOUSES),
+        ).unwrap();
+        setAddModalOpen(false);
+        setEditingProduct(null);
+      } catch (error) {
+        setModalError(
+          getApiErrorMessage(
+            error,
+            t('panel.supplierInventory.saveFailed', {
+              defaultValue: 'Could not save inventory product.',
+            }),
           ),
         );
-      } else {
-        const nextIndex = products.length + 1;
-        setProducts((prev) => [
-          ...prev,
-          {
-            id: `inv-new-${Date.now()}`,
-            inventoryNumber: `INV-${1000 + nextIndex}`,
-            category: category?.label || 'Cement',
-            productName: payload.productName,
-            sku: payload.sku,
-            currentStock: stock,
-            price: payload.price.startsWith('€')
-              ? payload.price
-              : `€${payload.price}`,
-            factoryId: factoryMatch?.value || 'steelco-manufacturing',
-            factoryName: payload.factoryName,
-            warehouseLocation: warehouse?.label || '',
-            status: statusMeta.status,
-            statusLabel: statusMeta.statusLabel,
-            approved: true,
-          },
-        ]);
       }
-      // TODO: wire inventory create/update API
     },
-    [products.length],
+    [createInventoryProduct, t],
   );
 
-  const handleRestockSubmit = useCallback(({ product, quantity }) => {
-    const added = Number(String(quantity).replace(/[^\d.]/g, '')) || 0;
-    setProducts((prev) =>
-      prev.map((item) => {
-        if (item.id !== product.id) return item;
-        const nextStock = item.currentStock + added;
-        const statusMeta = deriveInventoryStatus(nextStock);
-        return {
-          ...item,
-          currentStock: nextStock,
-          status: statusMeta.status,
-          statusLabel: statusMeta.statusLabel,
-        };
-      }),
-    );
-    // TODO: wire inventory restock API
+  const handleRestockSubmit = useCallback(
+    async ({ product, quantity }) => {
+      setRestockError('');
+      const added = parseNumber(quantity);
+      if (added == null || added <= 0) {
+        setRestockError(
+          t('panel.supplierInventory.invalidQuantity', {
+            defaultValue: 'Enter a valid quantity.',
+          }),
+        );
+        return;
+      }
+
+      try {
+        await restockInventoryProduct({
+          id: product.id,
+          quantity: added,
+        }).unwrap();
+        setRestockModalOpen(false);
+        setRestockProduct(null);
+      } catch (error) {
+        setRestockError(
+          getApiErrorMessage(
+            error,
+            t('panel.supplierInventory.restockFailed', {
+              defaultValue: 'Could not restock this product.',
+            }),
+          ),
+        );
+      }
+    },
+    [restockInventoryProduct, t],
+  );
+
+  const handleTabChange = useCallback((tabId) => {
+    setActiveTab(tabId);
+    setPage(1);
+    setSearch('');
+    setDebouncedSearch('');
   }, []);
+
+  const tableFilters = useMemo(
+    () => [
+      {
+        id: 'factory',
+        value: factoryFilter,
+        onChange: (value) => {
+          setFactoryFilter(value);
+        },
+        options: factoryOptions,
+        placeholder: t('panel.supplierInventory.allFactory'),
+      },
+      {
+        id: 'status',
+        value: statusFilter,
+        onChange: (value) => {
+          setStatusFilter(value);
+        },
+        options: statusOptions,
+        placeholder: t('panel.supplierInventory.allStatus'),
+      },
+    ],
+    [factoryFilter, statusFilter, factoryOptions, statusOptions, t],
+  );
+
+  const isManagementTab = activeTab === TAB_IDS.management;
+  const listErrorMessage = listError
+    ? getApiErrorMessage(
+        listQueryError,
+        t('panel.supplierInventory.loadFailed', {
+          defaultValue: 'Could not load inventory.',
+        }),
+      )
+    : '';
 
   return (
     <>
@@ -380,7 +483,7 @@ export default function InventoryPage() {
 
       <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {DEMO_SUPPLIER_INVENTORY_STAT_CARDS.map((card) => {
-          const value = stats[card.valueKey];
+          const value = stats?.[card.valueKey] ?? (statsError ? '—' : '…');
           const description = card.descriptionKey
             ? t(card.descriptionKey)
             : undefined;
@@ -402,119 +505,55 @@ export default function InventoryPage() {
       </div>
 
       <section className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
-        <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="inline-flex w-fit max-w-full shrink-0 items-center rounded-lg bg-white p-1">
-            {tabs.map((tab) => {
-              const isActive = tab.id === activeTab;
+        <DataTable
+          showCard={false}
+          showTabs
+          tabs={tabs}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+          showSearch={isManagementTab}
+          searchValue={search}
+          onSearchChange={(value) => {
+            setSearch(value);
+          }}
+          searchPlaceholder={t('panel.supplierInventory.searchPlaceholder')}
+          showFilters={isManagementTab}
+          filterLabel={t('panel.supplierInventory.sortBy')}
+          filters={tableFilters}
+          showTable={isManagementTab}
+          tableMinWidth="1120px"
+          columns={columns}
+          data={filteredProducts}
+          getRowKey={(row) => row.id}
+          loading={isManagementTab && loading}
+          showActions={isManagementTab}
+          actionType="menu"
+          getActions={getRowActions}
+          actionHeader={t('panel.supplierInventory.colAction')}
+          emptyMessage={
+            listErrorMessage || t('panel.supplierInventory.emptyProducts')
+          }
+          showPagination={isManagementTab}
+          pagination={{
+            page: safePage,
+            pageSize: SUPPLIER_INVENTORY_PAGE_SIZE,
+            total,
+            from,
+            to,
+            hasPrevious: safePage > 1,
+            hasNext: safePage < pageCount,
+            onPageChange: setPage,
+            summaryLabel: t('panel.supplierInventory.showingResults', {
+              from,
+              to,
+              total,
+            }),
+            previousLabel: t('panel.supplierInventory.previous'),
+            nextLabel: t('panel.supplierInventory.next'),
+          }}
+        />
 
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => {
-                    setActiveTab(tab.id);
-                    setPage(1);
-                  }}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors sm:px-4 ${
-                    isActive
-                      ? 'bg-[var(--active)] text-white shadow-sm'
-                      : 'bg-transparent text-[var(--primary-text)] hover:bg-gray-50'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {activeTab === TAB_IDS.management ? (
-          <>
-            <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-base font-bold text-[var(--primary-text)]">
-                {t('panel.supplierInventory.productList')}
-              </h2>
-
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
-                <span className="text-sm font-medium text-[var(--primary-text)]">
-                  {t('panel.supplierInventory.sortBy')}
-                </span>
-                <label className="relative inline-flex min-w-[140px] items-center">
-                  <select
-                    value={factoryFilter}
-                    onChange={(event) => {
-                      setFactoryFilter(event.target.value);
-                      setPage(1);
-                    }}
-                    className="h-10 w-full cursor-pointer appearance-none rounded-md border border-gray-200 bg-white py-2 pl-3 pr-9 text-sm text-[var(--primary-text)] outline-none transition-colors hover:border-gray-300 focus:border-[var(--active)]"
-                    aria-label={t('panel.supplierInventory.allFactory')}
-                  >
-                    {factoryOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                  <FiChevronDown
-                    className="pointer-events-none absolute right-2.5 size-4 text-[var(--secondary-text)]"
-                    aria-hidden
-                  />
-                </label>
-                <label className="relative inline-flex min-w-[140px] items-center">
-                  <select
-                    value={statusFilter}
-                    onChange={(event) => {
-                      setStatusFilter(event.target.value);
-                      setPage(1);
-                    }}
-                    className="h-10 w-full cursor-pointer appearance-none rounded-md border border-gray-200 bg-white py-2 pl-3 pr-9 text-sm text-[var(--primary-text)] outline-none transition-colors hover:border-gray-300 focus:border-[var(--active)]"
-                    aria-label={t('panel.supplierInventory.allStatus')}
-                  >
-                    {statusOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                  <FiChevronDown
-                    className="pointer-events-none absolute right-2.5 size-4 text-[var(--secondary-text)]"
-                    aria-hidden
-                  />
-                </label>
-              </div>
-            </div>
-
-            <DataTable
-              showCard={false}
-              tableMinWidth="1120px"
-              columns={columns}
-              data={pagedProducts}
-              getRowKey={(row) => row.id}
-              showActions
-              getActions={getRowActions}
-              actionHeader={t('panel.supplierInventory.colAction')}
-              emptyMessage={t('panel.supplierInventory.emptyProducts')}
-              showPagination
-              pagination={{
-                page: safePage,
-                pageSize: SUPPLIER_INVENTORY_PAGE_SIZE,
-                total,
-                from,
-                to,
-                hasPrevious: safePage > 1,
-                hasNext: safePage < pageCount,
-                onPageChange: setPage,
-                summaryLabel: t('panel.supplierInventory.showingResults', {
-                  from,
-                  to,
-                  total,
-                }),
-                previousLabel: t('panel.supplierInventory.previous'),
-                nextLabel: t('panel.supplierInventory.next'),
-              }}
-            />
-          </>
-        ) : (
+        {!isManagementTab ? (
           <div className="rounded-xl border border-gray-100 bg-gray-50 px-6 py-16 text-center">
             <p className="text-base font-semibold text-[var(--primary-text)]">
               {t('panel.supplierInventory.erpTitle')}
@@ -523,26 +562,38 @@ export default function InventoryPage() {
               {t('panel.supplierInventory.erpSubtitle')}
             </p>
           </div>
-        )}
+        ) : null}
       </section>
 
       <AddInventoryProductModal
         open={addModalOpen}
         onClose={handleAddModalClose}
         warehouseOptions={DEMO_SUPPLIER_INVENTORY_WAREHOUSES}
-        categoryOptions={DEMO_SUPPLIER_INVENTORY_CATEGORIES}
+        categoryOptions={categoryOptions}
+        subCategoryOptions={subCategoryOptions}
+        productTypeOptions={productTypeOptions}
         initialValues={editingProduct}
+        onCascadeChange={({ categoryId, subCategoryId }) => {
+          setModalCategoryId(categoryId || '');
+          setModalSubCategoryId(subCategoryId || '');
+        }}
         onSubmit={handleAddSubmit}
+        submitting={creating}
+        error={modalError}
       />
 
       <RestockModal
         open={restockModalOpen}
         onClose={() => {
+          if (restocking) return;
           setRestockModalOpen(false);
           setRestockProduct(null);
+          setRestockError('');
         }}
         product={restockProduct}
         onSubmit={handleRestockSubmit}
+        submitting={restocking}
+        error={restockError}
       />
     </>
   );

@@ -197,28 +197,19 @@
       "slides": {
         "hero-1": {
           "badge": "Entrega rápida",
-          "titleLines": [
-            "Poupe mais em",
-            "encomendas em volume"
-          ],
+          "titleLines": ["Poupe mais em", "encomendas em volume"],
           "description": "Preços especiais para grandes quantidades. Ideal para empreiteiros e construtores.",
           "ctaLabel": "Pedir orçamento em volume"
         },
         "hero-2": {
           "badge": "Entrega rápida",
-          "titleLines": [
-            "Materiais de qualidade para",
-            "cada projeto"
-          ],
+          "titleLines": ["Materiais de qualidade para", "cada projeto"],
           "description": "Cimento, aço e ferramentas de fornecedores verificados em toda a região.",
           "ctaLabel": "Comprar agora"
         },
         "hero-3": {
           "badge": "Entrega rápida",
-          "titleLines": [
-            "Feito para empreiteiros",
-            "e construtores"
-          ],
+          "titleLines": ["Feito para empreiteiros", "e construtores"],
           "description": "Encomendas simplificadas, preços em volume e entrega fiável na obra.",
           "ctaLabel": "Pedir orçamento em volume"
         }
@@ -1097,7 +1088,9 @@
       "totalProducts": "Total de produtos",
       "revenueTitle": "Visão geral de receitas",
       "revenueSubtitle": "Análise de receitas e volume de pedidos para o ano atual",
+      "periodFilter": "Selecionar período",
       "periodThisYear": "Este ano",
+      "periodLastYear": "Ano passado",
       "customer": "Cliente",
       "company": "Empresa",
       "orderId": "ID do pedido",
@@ -1106,11 +1099,18 @@
       "price": "Preço",
       "payment": "Pagamento",
       "status": "Estado",
+      "statusAssign": "Atribuir",
+      "statusCompleted": "Concluído",
+      "statusPending": "Pendente",
+      "statusCancel": "Cancelar",
+      "changeStatus": "Alterar estado do pedido",
       "action": "Ação",
       "viewOrder": "Ver pedido",
       "previous": "Anterior",
       "next": "Seguinte",
-      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados"
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "emptyOrders": "Nenhum pedido encontrado para este período.",
+      "requestFailed": "Não foi possível carregar a visão geral do fornecedor agora."
     },
     "supplierProducts": {
       "title": "Gestão de produtos",
@@ -1139,6 +1139,42 @@
         "breadcrumb": "Produto > Adicionar produto",
         "submit": "SUBMETER",
         "selectWarehouse": "Selecionar armazém"
+      },
+      "edit": {
+        "title": "Editar produto",
+        "breadcrumb": "Produto > Editar produto",
+        "submit": "ATUALIZAR"
+      },
+      "delete": {
+        "title": "Eliminar produto",
+        "message": "Tem a certeza de que deseja eliminar \"{{name}}\"? Esta ação não pode ser anulada.",
+        "cancel": "Cancelar",
+        "confirm": "Eliminar",
+        "deleting": "A eliminar…",
+        "close": "Fechar",
+        "closeOverlay": "Fechar sobreposição"
+      },
+      "csv": {
+        "title": "Carregue o seu ficheiro",
+        "hint": "Apenas CSV · Máx. 10 MB",
+        "close": "Fechar",
+        "closeOverlay": "Fechar sobreposição",
+        "dropTitle": "Largue o CSV aqui, ou clique para escolher",
+        "dropNote": "Vamos colocar na fila assim que clicar em Queue Import.",
+        "selected": "Selecionado: {{name}}",
+        "browseAria": "Escolher ficheiro CSV",
+        "downloadExample": "Descarregar exemplo",
+        "queueImport": "Queue Import",
+        "uploading": "A carregar…",
+        "fileRequired": "Escolha primeiro um ficheiro CSV.",
+        "invalidFormat": "O formato do ficheiro não é CSV. Carregue um ficheiro .csv.",
+        "emptyFile": "O ficheiro CSV está vazio.",
+        "noRows": "O CSV tem cabeçalhos, mas não tem linhas de produto.",
+        "missingColumns": "Faltam colunas obrigatórias: {{columns}}",
+        "rowMissingField": "Linha {{row}}: falta o valor obrigatório de {{column}}.",
+        "rowInvalidPrice": "Linha {{row}}: {{column}} deve ser um número válido.",
+        "rowInvalidTag": "Linha {{row}}: a etiqueta deve ser regular, bulk_order, featured ou pending.",
+        "uploadFailed": "Falha no carregamento. Verifique o ficheiro e tente novamente."
       }
     },
     "supplierPromoCodes": {
@@ -1169,6 +1205,16 @@
       "actionSeeDetails": "Ver detalhes",
       "statusSection": "Estado",
       "emptyPromoCodes": "Nenhum código promocional encontrado.",
+      "searchPlaceholder": "Pesquisar código, desconto, estado, validade...",
+      "previous": "Anterior",
+      "next": "Seguinte",
+      "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
+      "backToPromoProducts": "Voltar aos produtos promocionais",
+      "edit": {
+        "title": "Editar código promocional",
+        "breadcrumb": "Código promocional > Editar código promocional",
+        "submit": "ATUALIZAR CÓDIGO PROMOCIONAL"
+      },
       "emptyPromoProductsTitle": "Ainda sem produtos promocionais",
       "emptyPromoProductsHint": "Os produtos promocionais aparecerão aqui quando atribuídos a uma promoção.",
       "create": {
@@ -1229,6 +1275,7 @@
       "notFound": "Pedido não encontrado.",
       "backToOrders": "Voltar aos pedidos",
       "emptyOrders": "Nenhum pedido encontrado.",
+      "searchPlaceholder": "Pesquisar ID, cliente, email, estado...",
       "previous": "Anterior",
       "next": "Seguinte",
       "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados"
@@ -1273,6 +1320,7 @@
       "notFound": "Pedido não encontrado.",
       "backToOrders": "Voltar aos pedidos",
       "emptyOrders": "Nenhum pedido encontrado.",
+      "searchPlaceholder": "Pesquisar ID, empresa, cliente, email, estado...",
       "previous": "Anterior",
       "next": "Seguinte",
       "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados"
@@ -1296,6 +1344,7 @@
       "viewDocument": "Ver documento",
       "downloadDocument": "Descarregar documento",
       "emptyDocuments": "Nenhum documento encontrado.",
+      "searchPlaceholder": "Pesquisar ID do documento, pedido, cliente...",
       "previous": "Anterior",
       "next": "Seguinte",
       "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
@@ -1303,6 +1352,7 @@
       "modalSubtitle": "Crie documentos oficiais de negócio",
       "modalOrderIdLabel": "ID do pedido",
       "modalOrderIdPlaceholder": "Selecionar pedido",
+      "modalOrderIdEmpty": "Nenhum pedido correspondente",
       "modalOrderIdHint": "Apenas entregas concluídas estão disponíveis para geração de documentos",
       "modalCancel": "Cancelar",
       "modalSubmit": "Gerar documento",
@@ -1353,6 +1403,7 @@
       "actionDecline": "Recusar",
       "emptyOrders": "Nenhum pedido encontrado.",
       "emptyTransport": "Nenhum pedido de transporte encontrado.",
+      "searchPlaceholder": "Pesquisar PO, fábrica, produto, estado...",
       "previous": "Anterior",
       "next": "Seguinte",
       "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
@@ -1399,6 +1450,7 @@
       "actionDelete": "Eliminar",
       "actionSeeDetails": "Ver detalhes",
       "emptyProducts": "Nenhum produto de inventário encontrado.",
+      "searchPlaceholder": "Pesquisar inventário, produto, SKU, fábrica, estado...",
       "previous": "Anterior",
       "next": "Seguinte",
       "showingResults": "Mostrando {{from}} a {{to}} de {{total}} resultados",
@@ -1448,6 +1500,8 @@
       "emailPlaceholder": "voce@exemplo.com",
       "phonePlaceholder": "+351 000 000 000",
       "updateProfile": "Atualizar perfil",
+      "edit": "Editar",
+      "cancel": "Cancelar",
       "saveChanges": "GUARDAR ALTERAÇÕES",
       "warehouseLocation": "Localização do armazém",
       "warehouseLocationSupplier": "Localização do armazém",
@@ -1460,6 +1514,7 @@
       "currentPassword": "Palavra-passe atual",
       "newPassword": "Nova palavra-passe",
       "confirmNewPassword": "Confirmar nova palavra-passe",
+      "passwordHidden": "A palavra-passe está oculta por segurança.",
       "password": "Palavra-passe",
       "confirmPassword": "Confirmar palavra-passe",
       "ibanTitle": "Número IBAN",
@@ -1551,6 +1606,14 @@
       "ibanPh": "PT50 0002 0123 1234 5678 9013 4",
       "confirmPassword": "Confirmar palavra-passe",
       "passwordMismatch": "As palavras-passe não coincidem.",
+      "failed": "Falha no registo. Tente novamente.",
+      "success": "Registo concluído com sucesso.",
+      "otpTitle": "Verifique o seu email",
+      "otpSubtitle": "Introduza o código de verificação que enviámos para o seu email.",
+      "verificationSuccess": "Email verificado. Já pode iniciar sessão.",
+      "verificationFailed": "Código de verificação inválido ou expirado.",
+      "resendFailed": "Não foi possível reenviar o código. Tente novamente.",
+      "changeDetails": "Usar outro email",
       "factoryName": "Nome da fábrica",
       "uploadCompanyCert": "Certidão da empresa",
       "uploadFactoryCert": "Certidão da fábrica",
@@ -2419,6 +2482,7 @@
       "inTransit": "em trânsito",
       "complete": "concluído",
       "customerInfo": "Informação do cliente",
+      "message": "Mensagem",
       "name": "Nome",
       "phone": "Telefone",
       "email": "Email",
@@ -2485,8 +2549,239 @@
   },
   "order": {
     "details": {
-      "back": "Voltar"
+      "back": "Voltar",
+      "message": "Mensagem"
     }
+  },
+  "transporterDashboard": {
+    "title": "Visão geral do painel",
+    "welcome": "Bem-vindo de volta, {{name}}",
+    "cards": {
+      "activeAuctions": "Leilões ativos",
+      "wonDeliveries": "Entregas ganhas",
+      "inTransit": "Em trânsito",
+      "completedToday": "Concluídas hoje",
+      "todaysEarnings": "Ganhos de hoje",
+      "pendingEarnings": "Ganhos pendentes"
+    },
+    "actions": {
+      "viewAuctions": "Ver leilões",
+      "auctionsNearYou": "{{count}} leilões ativos perto de si",
+      "myDeliveries": "As minhas entregas",
+      "activeDeliveries": "{{count}} entregas ativas",
+      "requestPayout": "Pedir pagamento",
+      "availableAmount": "{{amount}} disponível"
+    },
+    "revenueOverview": {
+      "title": "Visão geral da receita",
+      "subtitle": "Análise de receitas e volume de encomendas para o ano atual",
+      "filterAria": "Filtro do período da receita"
+    },
+    "filters": {
+      "thisYear": "Este ano",
+      "lastYear": "Ano passado"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    }
+  },
+  "transporterAuctionBoard": {
+    "title": "Quadro de leilões",
+    "matchingCount": "{{count}} leilões correspondem à sua seleção",
+    "filter": "Filtro:",
+    "filterAria": "Filtrar leilões",
+    "justNow": "Agora mesmo",
+    "youTransporter": "Si (Transportador)",
+    "bidSuccess": "Proposta enviada com sucesso",
+    "filters": {
+      "all": "Todos",
+      "endingSoon": "A terminar em breve",
+      "nearestFirst": "Mais próximos primeiro",
+      "ended": "Terminados"
+    }
+  },
+  "transporterAssignDeliveries": {
+    "title": "Entregas atribuídas",
+    "activeCount": "{{count}} entregas ativas",
+    "filterAria": "Filtrar entregas",
+    "filters": {
+      "all": "Todas as entregas",
+      "assigned": "Atribuídas",
+      "pickedUp": "Recolhidas",
+      "inTransit": "Em trânsito",
+      "delivered": "Entregues"
+    }
+  },
+  "transporterPaymentsPayouts": {
+    "title": "Ganhos e carteira",
+    "subtitle": "Acompanhe os seus rendimentos e faça a gestão dos pagamentos",
+    "cards": {
+      "totalEarnings": "Ganhos totais",
+      "allTime": "Desde sempre",
+      "adminCommission": "Comissão admin",
+      "adminCommissionDesc": "20% por encomenda",
+      "availableBalance": "Saldo disponível",
+      "requestPayout": "Pedir pagamento",
+      "pendingEarnings": "Ganhos pendentes",
+      "monthlyAverage": "Média mensal"
+    },
+    "revenueOverview": {
+      "title": "Visão geral da receita",
+      "subtitle": "Análise de receitas e volume de encomendas para o ano atual",
+      "filterAria": "Filtro do período da receita"
+    },
+    "filters": {
+      "thisYear": "Este ano",
+      "lastYear": "Ano passado"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    },
+    "historyTitle": "Histórico de transações",
+    "columns": {
+      "date": "Data",
+      "transaction": "Transação",
+      "orderId": "ID da encomenda",
+      "status": "Estado",
+      "amount": "Montante"
+    },
+    "types": {
+      "delivery": "Entrega",
+      "payout": "Pagamento",
+      "withdrawal": "Levantamento"
+    },
+    "status": {
+      "completed": "Concluído",
+      "pending": "Pendente",
+      "approved": "Aprovado",
+      "rejected": "Rejeitado"
+    },
+    "withdraw": {
+      "title": "Levantar fundos",
+      "amount": "Montante",
+      "businessName": "Nome da empresa/organização",
+      "routingNumber": "Número de routing",
+      "accountNumber": "Número de conta",
+      "cancel": "Cancelar",
+      "submit": "Enviar",
+      "submitting": "A enviar…",
+      "close": "Fechar",
+      "success": "Pedido de levantamento enviado",
+      "invalidAmount": "Introduza um montante válido maior que 0",
+      "invalidBusinessName": "O nome da empresa deve ter pelo menos 2 caracteres",
+      "invalidRouting": "O número de routing deve ter pelo menos 3 caracteres",
+      "invalidAccount": "O número de conta deve ter pelo menos 5 caracteres",
+      "insufficientBalance": "O montante excede o saldo disponível"
+    }
+  },
+  "transporterOrderHistory": {
+    "title": "Histórico de entregas",
+    "completedCount": "{{count}} entregas concluídas",
+    "filterAria": "Filtrar entregas",
+    "filters": {
+      "delivered": "Entregues"
+    }
+  },
+  "transporterInsurance": {
+    "title": "Gestão de seguros",
+    "subtitle": "Faça a gestão das suas apólices e documentos de seguro",
+    "uploadInsurance": "Carregar seguro",
+    "alertTitle": "Todos os requisitos de seguro cumpridos",
+    "alertBody": "Tem todas as apólices obrigatórias verificadas e ativas. Pode participar em leilões e aceitar trabalhos de entrega.",
+    "requiredTitle": "Tipos de seguro obrigatórios",
+    "requiredSubtitle": "Ambos os tipos de seguro são obrigatórios antes de aceitar trabalhos de entrega",
+    "types": {
+      "civil": {
+        "title": "Seguro de responsabilidade civil",
+        "description": "Cobre danos a terceiros durante operações de transporte"
+      },
+      "cargo": {
+        "title": "Seguro de responsabilidade civil do transportador",
+        "description": "Cobre danos ou perda de carga durante o transporte"
+      }
+    },
+    "verified": "Verificado",
+    "provider": "Seguradora",
+    "viewDocument": "Ver documento",
+    "downloadPdf": "Transferir PDF",
+    "renewPolicy": "Renovar apólice",
+    "policyNumber": "Número da apólice",
+    "coverageAmount": "Montante de cobertura",
+    "expiryDate": "Data de validade",
+    "upload": {
+      "title": "Carregar documento de seguro",
+      "subtitle": "Adicionar nova apólice de seguro",
+      "close": "Fechar",
+      "insuranceType": "Tipo de seguro",
+      "selectType": "Selecionar tipo de seguro",
+      "civil": "Seguro de responsabilidade civil",
+      "cargo": "Seguro de responsabilidade de carga",
+      "provider": "Seguradora",
+      "providerPlaceholder": "Introduza o nome da companhia de seguros",
+      "policyNumber": "Número da apólice",
+      "policyNumberPlaceholder": "Introduza o número da apólice",
+      "coverageAmount": "Montante de cobertura",
+      "coveragePlaceholder": "Introduza o montante de cobertura",
+      "startDate": "Data de início",
+      "expiryDate": "Data de validade",
+      "datePlaceholder": "MM/DD/AA",
+      "document": "Carregar documento de seguro",
+      "dropTitle": "Clique para carregar ou arraste e largue",
+      "dropHint": "PDF, JPG, PNG (Máx. 10 MB)",
+      "noteLabel": "Nota:",
+      "noteBody": "O seu documento será analisado pela nossa equipa em 24-48 horas. Será notificado quando a verificação estiver concluída.",
+      "cancel": "Cancelar",
+      "submit": "Enviar para verificação"
+    }
+  },
+  "transporterInvoices": {
+    "title": "Faturas de comissão",
+    "subtitle": "Faça a gestão e o acompanhamento de todas as faturas de comissão geradas a partir das encomendas do marketplace.",
+    "columns": {
+      "invoiceId": "ID DA FATURA",
+      "type": "TIPO",
+      "orderId": "ID DA ENCOMENDA",
+      "customer": "CLIENTE",
+      "amount": "MONTANTE",
+      "date": "DATA",
+      "actions": "AÇÕES"
+    },
+    "types": {
+      "invoice": "Fatura"
+    },
+    "viewInvoice": "Ver fatura",
+    "downloadInvoice": "Transferir fatura",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "showingResults": "A mostrar {{from}} a {{to}} de {{total}} resultados"
+  },
+  "transporterMap": {
+    "mapTitle": "Mapa Google",
+    "startingPointPlaceholder": "Escolher ponto de partida",
+    "destinationPlaceholder": "Escolher destino",
+    "addDestination": "Adicionar destino"
   },
   "factoryDashboard": {
     "title": "Visão geral do painel",
@@ -2534,11 +2829,13 @@
   },
   "factoryProducts": {
     "title": "Gestão de produtos",
+    "backToProducts": "Voltar aos produtos",
     "subtitle": "Faça a gestão do seu catálogo de produtos para venda a clientes.",
     "addProduct": "Adicionar produto",
     "uploadCsv": "Carregar ficheiro CSV",
     "filters": "Filtros:",
     "allCategories": "Todas as categorias",
+    "searchPlaceholder": "Pesquisar SKU, título, estado...",
     "tabs": {
       "all": "Todos",
       "active": "Ativos",
@@ -2555,7 +2852,25 @@
     },
     "priceText": "Preço: {{price}} por saco (50 kg)",
     "priceFallback": "Preço: —",
-    "untitled": "Sem título"
+    "untitled": "Sem título",
+    "uploadModal": {
+      "title": "Carregue o seu ficheiro",
+      "hint": "Apenas CSV · Máx. 10 MB · Máx. 100 linhas",
+      "dropTitle": "Largue o CSV aqui, ou clique para procurar",
+      "dropNote": "Vamos carregar assim que clicar em Queue Import.",
+      "selected": "Selecionado: {{name}}",
+      "downloadExample": "Descarregar modelo",
+      "downloadCategoryGuide": "Guia de categorias",
+      "queueImport": "Queue Import",
+      "uploading": "A carregar…",
+      "downloading": "A descarregar…",
+      "uploadFailed": "Falha no carregamento. Tente novamente.",
+      "downloadFailed": "Falha ao descarregar o modelo CSV.",
+      "downloadGuideFailed": "Falha ao descarregar o guia de categorias.",
+      "closeOverlay": "Fechar sobreposição",
+      "close": "Fechar",
+      "browseAria": "Procurar ficheiro CSV"
+    }
   },
   "factoryOrders": {
     "title": "Encomendas de fornecedores",
@@ -2638,6 +2953,9 @@
     "title": "Ganhos e pagamentos",
     "subtitle": "Faça a gestão dos seus ganhos e informações de pagamento",
     "paymentHistory": "Histórico de pagamentos",
+    "commissionInvoices": "Faturas de comissão",
+    "invoiceSearchPlaceholder": "Pesquisar ID da fatura, encomenda ou participante...",
+    "invoiceEmpty": "Nenhuma fatura de comissão encontrada",
     "cards": {
       "totalEarnings": "Ganhos totais",
       "thisMonth": "Este mês",
@@ -2645,37 +2963,19 @@
       "adminCommissionDesc": "20% por encomenda",
       "availableBalance": "Saldo disponível",
       "withdrawFunds": "Levantar fundos",
+      "withdrawNote": "Os levantamentos não estão disponíveis na API atual do fornecedor",
       "pendingAmount": "Montante pendente"
     },
-    "columns": {
+    "invoiceColumns": {
       "date": "Data",
-      "type": "Tipo",
-      "accountType": "Tipo de conta",
-      "accountNumber": "Número de conta",
+      "invoiceId": "ID da fatura",
+      "orderId": "ID da encomenda",
+      "participant": "Participante",
       "amount": "Montante",
-      "status": "Estado"
+      "actions": "Ações"
     },
-    "type": {
-      "withdrawal": "Levantamento"
-    },
-    "accountType": {
-      "stripe": "Stripe",
-      "bankTransfer": "Transferência bancária"
-    },
-    "status": {
-      "approved": "Aprovado",
-      "pending": "Pendente"
-    },
-    "withdraw": {
-      "title": "Levantar fundos",
-      "amount": "Montante",
-      "businessName": "Nome da empresa/organização",
-      "routingNumber": "Número de routing",
-      "accountNumber": "Número de conta",
-      "cancel": "Cancelar",
-      "submit": "Enviar",
-      "closeOverlay": "Fechar overlay",
-      "close": "Fechar"
+    "invoiceActions": {
+      "download": "Descarregar PDF"
     }
   },
   "supplierAnalytics": {
@@ -2745,6 +3045,7 @@
     "filters": {
       "allStatus": "Todos os estados"
     },
+    "searchPlaceholder": "Pesquisar ID de devolução, encomenda, cliente, produto, estado...",
     "columns": {
       "returnId": "ID DE DEVOLUÇÃO",
       "orderId": "ID DA ENCOMENDA",
@@ -2801,6 +3102,7 @@
     "filters": {
       "allStatus": "Todos os estados"
     },
+    "searchPlaceholder": "Pesquisar ID da disputa, encomenda, cliente, fornecedor, problema, estado...",
     "columns": {
       "disputeId": "ID DA DISPUTA",
       "orderId": "ID DA ENCOMENDA",
@@ -2834,6 +3136,7 @@
   "supplierInvoices": {
     "title": "Faturas de comissão",
     "subtitle": "Faça a gestão e acompanhe todas as faturas de comissão geradas a partir de encomendas do marketplace.",
+    "searchPlaceholder": "Pesquisar ID da fatura, ID da encomenda, cliente...",
     "typeInvoice": "Fatura",
     "viewAria": "Ver {{id}}",
     "downloadAria": "Descarregar {{id}}",

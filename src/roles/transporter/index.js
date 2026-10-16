@@ -3,8 +3,9 @@ import {
   FiTruck,
   FiDollarSign,
   FiRotateCcw,
+  FiMessageSquare,
   FiShield,
-  FiMapPin,
+  // FiMapPin,
   FiFile,
   FiUser,
 } from 'react-icons/fi'
@@ -43,15 +44,20 @@ const transporterRole = {
       Icon: FiRotateCcw,
     },
     {
+      to: '/transporter/chat',
+      labelKey: 'panel.nav.chat',
+      Icon: FiMessageSquare,
+    },
+    {
       to: '/transporter/insurance',
       labelKey: 'panel.nav.insurance',
       Icon: FiShield,
     },
-    {
-      to: '/transporter/map',
-      labelKey: 'panel.nav.map',
-      Icon: FiMapPin,
-    },
+    // {
+    //   to: '/transporter/map',
+    //   labelKey: 'panel.nav.map',
+    //   Icon: FiMapPin,
+    // },
     {
       to: '/transporter/invoices',
       labelKey: 'panel.nav.invoices',

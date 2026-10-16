@@ -2,6 +2,25 @@ import { baseApi } from '../../services/api/baseApi'
 
 export const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getCategories: builder.query({
+      query: () => ({
+        url: '/api/categories',
+        method: 'GET',
+      }),
+      providesTags: [{ type: 'Product', id: 'CATEGORIES' }],
+    }),
+    getSubCategories: builder.query({
+      query: (categoryId) => ({
+        url: `/api/categories/${categoryId}/subcategories`,
+        method: 'GET',
+      }),
+    }),
+    getProductTypes: builder.query({
+      query: (subCategoryId) => ({
+        url: `/api/subcategories/${subCategoryId}/product-types`,
+        method: 'GET',
+      }),
+    }),
     getProducts: builder.query({
       query: (params) => ({
         url: '/products',
@@ -49,13 +68,29 @@ export const productApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [{ type: 'Product', id: 'LIST' }],
     }),
+    uploadProductsCsv: builder.mutation({
+      query: (file) => {
+        const formData = new FormData()
+        formData.append('file', file)
+        return {
+          url: '/products/csv',
+          method: 'POST',
+          data: formData,
+        }
+      },
+      invalidatesTags: [{ type: 'Product', id: 'LIST' }],
+    }),
   }),
 })
 
 export const {
+  useGetCategoriesQuery,
+  useGetSubCategoriesQuery,
+  useGetProductTypesQuery,
   useGetProductsQuery,
   useGetProductByIdQuery,
   useCreateProductMutation,
   useUpdateProductMutation,
   useDeleteProductMutation,
+  useUploadProductsCsvMutation,
 } = productApi
